@@ -22,8 +22,8 @@
     <header class="header header--pulsar" id="main-header">
         <div class="container header__container">
             <div class="header__brand">
-                <a href="index.html" class="header__logo" style="font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">
-                    PULSAR<span style="color: var(--color-pulsar-accent);">-X</span>
+                <a href="index.html" class="brand-link">
+                    <img src="./src/img/logo-pulsar.png" alt="Pulsar-X" class="header__logo-img">
                 </a>
             </div>
             
@@ -236,39 +236,50 @@
         </section>
     </main>
 
-    <footer class="footer--pulsar">
+    <footer class="main-footer footer--pulsar">
         <div class="container">
-            <div class="grid grid--4-cols">
-                <div>
-                    <h3 style="font-family: 'Orbitron'; font-size: 1.5rem; margin-bottom: 1rem;">PULSAR-X</h3>
-                    <p style="font-size: 0.9rem; line-height: 1.6;">Divisão de tecnologia da FS Consultoria.<br>O futuro do controle de pragas.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="./src/img/logo-pulsar.png" alt="Pulsar-X" class="footer-logo-img">
+                    <span class="footer-slogan">"O futuro do controle de pragas começa agora."</span>
+                    <p style="font-size: 0.85rem; opacity: 0.6;">Uma empresa do Grupo FS<br>CNPJ: 64.024.526/0001-94</p>
                 </div>
-                <div>
-                    <h4 style="font-weight: 600; margin-bottom: 1rem;">Equipamentos</h4>
-                    <ul style="font-size: 0.9rem; line-height: 2;">
-                        <li><a href="#">Pulsar Ultra (IoT)</a></li>
-                        <li><a href="#">Aero Pro (ULV)</a></li>
-                        <li><a href="#">Electro Trap</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="font-weight: 600; margin-bottom: 1rem;">Corporativo</h4>
-                    <ul style="font-size: 0.9rem; line-height: 2;">
+
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul class="footer-links">
                         <li><a href="index.html">FS Consultoria</a></li>
                         <li><a href="neoprag.html">Neoprag</a></li>
                         <li><a href="neoagro.html">Neoagro</a></li>
+                        <li><a href="#">Catálogo Tech</a></li>
+                        <li><a href="#">Suporte</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 style="font-weight: 600; margin-bottom: 1rem;">Contato</h4>
-                    <ul style="font-size: 0.9rem; line-height: 2;">
-                        <li>tech@pulsarx.com</li>
-                        <li>(00) 0000-0000</li>
+
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i><span>Rua Walter Dourado, 5386,<br>Centro, Vilhena-RO</span></li>
+                        <li><i class="fas fa-phone-alt"></i><span>(69) 99361-4353</span></li>
+                        <li><i class="fas fa-envelope"></i><span>tech@fsconsultoria.com.br</span></li>
                     </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Conecte-se</h4>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/5569993614353" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="text-center" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem;">
+
+            <div class="footer-bottom">
                 <p>&copy; 2026 Pulsar-X Technology. Todos os direitos reservados.</p>
+                <p class="dev-credits">
+                    Desenvolvido por <a href="https://branct.com" target="_blank">Branct Studio</a>
+                </p>
             </div>
         </div>
     </footer>

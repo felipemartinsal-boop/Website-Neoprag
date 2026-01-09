@@ -1371,27 +1371,49 @@ ul { list-style: none; }
 }
 
 /* =========================================
-   13. PULSAR-X SECTIONS
+   13. PULSAR-X SECTIONS (HERO TELA CHEIA)
    ========================================= */
 
 /* Hero Pulsar */
 .hero--pulsar {
+    /* MUDANÇA PRINCIPAL: Ocupa 100% da altura da tela */
+    height: 100vh;
+    min-height: 100vh;
+
+    /* Centraliza o conteúdo perfeitamente no meio da tela cheia */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Espaço para o cabeçalho fixo não cobrir o texto */
+    padding-top: var(--header-height);
+
+    /* Fundo Tech Escuro */
     background: linear-gradient(135deg, #000000 0%, var(--color-pulsar-dark) 60%, #1a2e4a 100%);
     position: relative;
-    padding-top: 160px;
     color: white;
+    overflow: hidden;
 }
 
-/* Grid Overlay Effect */
+/* Efeito de Grid Cibernético (Overlay) */
 .hero--pulsar::before {
     content: ''; position: absolute; inset: 0;
     background-image: linear-gradient(rgba(76, 201, 240, 0.05) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(76, 201, 240, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     pointer-events: none;
+    z-index: 1;
 }
 
-/* Tech Icon Pulse Animation */
+/* Garante que o texto fique acima do grid */
+.hero--pulsar .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center; /* Garante que tudo fique centralizado */
+}
+
+/* Animação do Ícone de Robô/Tech */
 .tech-pulse-icon {
     font-size: 4rem; color: var(--color-pulsar-accent);
     margin-bottom: 2rem; display: inline-block;
@@ -1402,6 +1424,8 @@ ul { list-style: none; }
     0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 10px rgba(76, 201, 240, 0.5)); }
     50% { opacity: 0.8; transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(76, 201, 240, 0.8)); }
 }
+
+/* --- ESTILOS DAS SEÇÕES SEGUINTES (Equipamentos) --- */
 
 /* Tech Cards (Dark or Light variant) */
 .card--tech {
@@ -1444,14 +1468,6 @@ ul { list-style: none; }
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
-/* Footer Pulsar */
-.footer--pulsar {
-    background: #0b111a; border-top: 1px solid rgba(255,255,255,0.05);
-    color: #94a3b8; padding: 4rem 0 2rem;
-}
-.footer--pulsar h3, .footer--pulsar h4 { color: white; }
-.footer--pulsar a:hover { color: var(--color-pulsar-accent); }
 /* =========================================
    14. SEÇÃO PREMIUM: CONSULTORIA
    ========================================= */
@@ -1892,3 +1908,114 @@ ul { list-style: none; }
 
 /* Botão Cheio */
 .full-width { width: 100%; text-align: center; display: block; }
+/* =========================================
+   AJUSTE LOGO PULSAR-X (CABEÇALHO DARK)
+   ========================================= */
+
+.header--pulsar .header__brand {
+    display: flex;
+    align-items: center;
+}
+
+.header--pulsar .header__logo-img {
+    height: 90px !important; /* Tamanho ajustado */
+    width: auto;
+    object-fit: contain;
+    
+    /* TRUQUE: Inverte as cores para ficar BRANCO PURO no fundo escuro */
+    filter: brightness(0) invert(1) !important;
+    
+    transition: all 0.3s ease;
+}
+
+/* Efeito Tech ao passar o mouse: Brilho Neon Ciano */
+.header--pulsar .header__logo-img:hover {
+    transform: scale(1.05);
+    /* Mantém branco e adiciona uma sombra luminosa azul/ciano */
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(76, 201, 240, 0.8)) !important;
+    opacity: 1;
+}
+/* =========================================
+   AJUSTES FINAIS RODAPÉ PULSAR-X
+   ========================================= */
+
+/* Força a cor Ciano nos ícones e hover dos links */
+.footer--pulsar .footer-contact i,
+.footer--pulsar .footer-links a:hover,
+.footer--pulsar .social-btn:hover {
+    color: #4cc9f0 !important; /* Ciano Neon */
+}
+
+.footer--pulsar .footer-col h4 {
+    color: #4cc9f0; /* Títulos em Ciano */
+    text-shadow: 0 0 10px rgba(76, 201, 240, 0.3);
+}
+
+/* Garante que a logo fique branca brilhante no fundo preto */
+.footer--pulsar .footer-logo-img {
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(76, 201, 240, 0.5));
+}
+/* =========================================
+   BOTÃO ÁREA DO CLIENTE (HEADER) - ATUALIZADO
+   ========================================= */
+
+.btn-client-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    
+    /* MUDANÇA NAS MARGENS: */
+    margin-left: 20px;   /* Afasta do botão de orçamento que está à esquerda */
+    margin-right: 0;     /* Não precisa de margem na direita pois é o último item */
+    
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap; /* Garante que o texto não quebre linha */
+}
+
+.btn-client-area i {
+    font-size: 1.3rem; /* Ícone levemente maior */
+}
+
+.btn-client-area:hover {
+    opacity: 0.7;
+    transform: translateY(-1px);
+}
+/* =========================================
+   BOTÃO "IA ESPECIALISTA" (CORRIGIDO)
+   ========================================= */
+
+.btn--ia {
+    margin-left: 30px;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    
+    /* Gradiente Azul Tech */
+    background: linear-gradient(135deg, var(--color-blue-accent), #2a4b7c);
+    color: white;
+    
+    font-weight: 600;
+    font-size: 0.95rem; /* Aumentei levemente para ficar legível em minúsculas */
+    border: 1px solid rgba(255,255,255,0.2);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    
+    /* AQUI ESTÁ A CORREÇÃO: Removemos o uppercase */
+    text-transform: none; 
+    letter-spacing: normal;
+}
+
+.btn--ia:hover {
+    background: white;
+    color: var(--color-navy-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(58, 95, 143, 0.6);
+}
