@@ -20,8 +20,8 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: ./public_html/  # Pasta de destino na Hostinger
-        local-dir: ./               # Pasta de origem no PC (o ponto e barra significam "Raiz")
+        server-dir: ./    # <--- MUDOU AQUI: Apenas ponto e barra
+        local-dir: ./     # <--- Mantém assim (pega da raiz do seu PC)
         exclude: |
           **/.git*
           **/.git*/**
