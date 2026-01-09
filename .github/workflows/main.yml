@@ -21,6 +21,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ./public_html/
+        local-dir: ./public/  # <--- ESSA É A LINHA MÁGICA
         exclude: |
           **/.git*
           **/.git*/**
