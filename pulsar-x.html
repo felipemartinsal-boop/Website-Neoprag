@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pulsar-X - Tecnologia avançada para controle de pragas. Equipamentos IoT, armadilhas UV e nebulizadores de precisão.">
+    <meta property="og:title" content="Pulsar-X | O Futuro do Controle de Pragas">
+    <meta property="og:type" content="website">
+    
+    <title>Pulsar-X | Tecnologia e Equipamentos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="./src/css/main.css">
+</head>
+<body class="page-pulsar">
+
+    <header class="header header--pulsar" id="main-header">
+        <div class="container header__container">
+            <div class="header__brand">
+                <a href="index.html" class="header__logo" style="font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">
+                    PULSAR<span style="color: var(--color-pulsar-accent);">-X</span>
+                </a>
+            </div>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-desktop__list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="neoprag.html" class="nav-link">Neoprag</a></li>
+                    <li><a href="neoagro.html" class="nav-link">Neoagro</a></li>
+                    <li><a href="pulsar-x.html" class="nav-link active">Pulsar-X</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+                <a href="#catalogo" class="btn btn--pulsar-secondary" style="margin-left: 20px; font-size: 0.8rem;">
+                    <i class="fas fa-download mr-2"></i> Catálogo
+                </a>
+            </nav>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" style="background: var(--color-pulsar-dark);">
+        <nav class="mobile-menu__nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="neoprag.html" class="mobile-nav-link">Neoprag</a>
+            <a href="neoagro.html" class="mobile-nav-link">Neoagro</a>
+            <a href="pulsar-x.html" class="mobile-nav-link">Pulsar-X</a>
+            <a href="#contato" class="mobile-nav-link">Contato</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="hero--pulsar">
+            <div class="container" style="text-align: center; max-width: 900px;">
+                <div class="animate-fade-up">
+                    <i class="fas fa-robot tech-pulse-icon"></i>
+                    <h1 class="hero__title" style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1rem; line-height: 1.1;">
+                        O Futuro do Controle<br>
+                        <span style="color: var(--color-pulsar-accent);">Começa Agora</span>
+                    </h1>
+                    
+                    <p style="font-size: 1.2rem; margin-bottom: 3rem; color: #cbd5e1; max-width: 700px; margin-left: auto; margin-right: auto;">
+                        Eliminar pragas com precisão cirúrgica. Equipamentos de última geração que protegem seu ambiente sem comprometer a segurança.
+                    </p>
+                    
+                    <div class="hero__actions" style="justify-content: center;">
+                        <a href="#equipamentos" class="btn btn--pulsar-primary">
+                            <i class="fas fa-search mr-2"></i> Explorar Tecnologia
+                        </a>
+                        <a href="#contato" class="btn btn--pulsar-secondary">
+                            Falar com Engenheiro
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 50px; background: linear-gradient(to top, #f8fafc, transparent); position: absolute; bottom: 0; width: 100%;"></div>
+        </section>
+
+        <section id="equipamentos" class="section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Equipamentos Profissionais</h2>
+                    <p class="section-description">Tecnologia de ponta para eficiência máxima e risco zero.</p>
+                </div>
+
+                <div class="grid grid--3-cols">
+                    <div class="card--tech">
+                        <div class="text-center mb-large">
+                            <i class="fas fa-microchip" style="font-size: 3rem; color: var(--color-pulsar-blue);"></i>
+                        </div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Pulsar Ultra</h3>
+                        <p class="mb-large" style="color: #64748b; font-size: 0.9rem;">Sistema inteligente de controle automatizado com sensores de detecção IoT.</p>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <span class="spec-tag">IoT Integrado</span>
+                            <span class="spec-tag">App Mobile</span>
+                            <span class="spec-tag">Sensores IR</span>
+                        </div>
+
+                        <ul class="check-list" style="margin-bottom: 1.5rem;">
+                            <li>Monitoramento 24/7</li>
+                            <li>Acionamento automático</li>
+                            <li>Relatórios analíticos</li>
+                        </ul>
+                        
+                        <button class="btn btn--pulsar-primary btn-demo-trigger" data-product="Pulsar Ultra" style="width: 100%; font-size: 0.8rem;">
+                            Solicitar Demo
+                        </button>
+                    </div>
+
+                    <div class="card--tech">
+                        <div class="text-center mb-large">
+                            <i class="fas fa-wind" style="font-size: 3rem; color: var(--color-pulsar-blue);"></i>
+                        </div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Aero Pro</h3>
+                        <p class="mb-large" style="color: #64748b; font-size: 0.9rem;">Nebulizador de ultra-baixo volume (ULV) com dispersão controlada micrométrica.</p>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <span class="spec-tag">Tecnologia ULV</span>
+                            <span class="spec-tag">Bateria 8h</span>
+                            <span class="spec-tag">Portátil</span>
+                        </div>
+
+                        <ul class="check-list" style="margin-bottom: 1.5rem;">
+                            <li>Partículas de 5-30 mícrons</li>
+                            <li>Alcance de 15 metros</li>
+                            <li>Economia de insumos</li>
+                        </ul>
+
+                        <button class="btn btn--pulsar-primary btn-demo-trigger" data-product="Aero Pro" style="width: 100%; font-size: 0.8rem;">
+                            Solicitar Demo
+                        </button>
+                    </div>
+
+                    <div class="card--tech">
+                        <div class="text-center mb-large">
+                            <i class="fas fa-bolt" style="font-size: 3rem; color: var(--color-pulsar-blue);"></i>
+                        </div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Electro Trap</h3>
+                        <p class="mb-large" style="color: #64748b; font-size: 0.9rem;">Armadilha luminosa inteligente com grade de alta tensão e design discreto.</p>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <span class="spec-tag">LED UV-A</span>
+                            <span class="spec-tag">4.000 Volts</span>
+                            <span class="spec-tag">Silencioso</span>
+                        </div>
+
+                        <ul class="check-list" style="margin-bottom: 1.5rem;">
+                            <li>Eficácia de 99.8%</li>
+                            <li>Baixo consumo</li>
+                            <li>Fácil limpeza</li>
+                        </ul>
+
+                        <button class="btn btn--pulsar-primary btn-demo-trigger" data-product="Electro Trap" style="width: 100%; font-size: 0.8rem;">
+                            Solicitar Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-tech-dark">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title" style="color: white;">Engenharia de Precisão</h2>
+                    <p class="section-description" style="color: #94a3b8;">Tecnologia desenvolvida em laboratório para resultados definitivos.</p>
+                </div>
+
+                <div class="grid grid--3-cols">
+                    <div class="feature-tech">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Engenharia</h3>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Equipamentos desenvolvidos com componentes de grau industrial e durabilidade extrema.</p>
+                    </div>
+                    <div class="feature-tech">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Segurança</h3>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Certificações ISO 9001 e CE. Operação segura sem risco para humanos ou animais.</p>
+                    </div>
+                    <div class="feature-tech">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Dados</h3>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Análise de performance em tempo real. Controle baseado em dados, não em suposições.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section">
+            <div class="container">
+                <div class="grid grid--2-cols" style="align-items: center;">
+                    <div>
+                        <h2 class="section-title" style="text-align: left; margin-left: 0; color: var(--color-pulsar-dark);">Agende uma Demonstração</h2>
+                        <p class="mb-large">Nossos engenheiros técnicos estão prontos para apresentar como a tecnologia Pulsar-X pode revolucionar o controle de pragas na sua empresa.</p>
+                        
+                        <div style="background: white; padding: 1.5rem; border-left: 4px solid var(--color-pulsar-blue); border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                            <h4 style="margin-bottom: 0.5rem; font-family: 'Orbitron';">Suporte Técnico</h4>
+                            <p style="font-size: 0.9rem;">Além dos equipamentos, oferecemos treinamento completo para sua equipe e manutenção vitalícia.</p>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--color-pulsar-dark); padding: 2.5rem; border-radius: 8px; color: white; position: relative; border: 1px solid #334155;">
+                        <h3 class="text-center mb-large" style="font-family: 'Orbitron'; letter-spacing: 2px;">Formulário Técnico</h3>
+                        <form class="form-neoprag" id="contactForm"> <div>
+                                <label class="form-label" style="color: #94a3b8;">Nome / Empresa</label>
+                                <input type="text" name="nome" required placeholder="Ex: Tech Solutions Ltda" style="background: #1e293b; border-color: #334155; color: white;">
+                            </div>
+                            <div>
+                                <label class="form-label" style="color: #94a3b8;">Email Corporativo</label>
+                                <input type="email" name="email" required placeholder="email@empresa.com" style="background: #1e293b; border-color: #334155; color: white;">
+                            </div>
+                            <div>
+                                <label class="form-label" style="color: #94a3b8;">Assunto</label>
+                                <input type="text" name="assunto" placeholder="Interesse em equipamentos..." style="background: #1e293b; border-color: #334155; color: white;">
+                            </div>
+                            <div>
+                                <label class="form-label" style="color: #94a3b8;">Mensagem</label>
+                                <textarea name="mensagem" rows="4" required placeholder="Detalhes da sua necessidade..." style="background: #1e293b; border-color: #334155; color: white;"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--pulsar-primary" style="width: 100%; cursor: pointer; border: none; margin-top: 1rem;">
+                                Enviar Solicitação <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer--pulsar">
+        <div class="container">
+            <div class="grid grid--4-cols">
+                <div>
+                    <h3 style="font-family: 'Orbitron'; font-size: 1.5rem; margin-bottom: 1rem;">PULSAR-X</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">Divisão de tecnologia da FS Consultoria.<br>O futuro do controle de pragas.</p>
+                </div>
+                <div>
+                    <h4 style="font-weight: 600; margin-bottom: 1rem;">Equipamentos</h4>
+                    <ul style="font-size: 0.9rem; line-height: 2;">
+                        <li><a href="#">Pulsar Ultra (IoT)</a></li>
+                        <li><a href="#">Aero Pro (ULV)</a></li>
+                        <li><a href="#">Electro Trap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-weight: 600; margin-bottom: 1rem;">Corporativo</h4>
+                    <ul style="font-size: 0.9rem; line-height: 2;">
+                        <li><a href="index.html">FS Consultoria</a></li>
+                        <li><a href="neoprag.html">Neoprag</a></li>
+                        <li><a href="neoagro.html">Neoagro</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-weight: 600; margin-bottom: 1rem;">Contato</h4>
+                    <ul style="font-size: 0.9rem; line-height: 2;">
+                        <li>tech@pulsarx.com</li>
+                        <li>(00) 0000-0000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem;">
+                <p>&copy; 2026 Pulsar-X Technology. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" style="background: var(--color-pulsar-blue);">
+        <i class="fas fa-check-circle"></i>
+        <span>Solicitação recebida. Nossa engenharia entrará em contato.</span>
+    </div>
+
+    <script src="./src/js/main.js" defer></script>
+</body>
+</html>

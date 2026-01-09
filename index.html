@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FS Consultoria Empresarial - Soluções completas em controle de pragas. Neoprag, Neoagro, Pulsar-X.">
+    
+    <meta property="og:title" content="FS Consultoria Empresarial">
+    <meta property="og:description" content="Soluções integradas em controle de pragas: residencial, empresarial e agro.">
+    <meta property="og:type" content="website">
+
+    <title>FS Consultoria Empresarial | Soluções Integradas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="./src/css/main.css">
+</head>
+<body>
+
+    <header class="header" id="main-header">
+        <div class="container header__container">
+            <div class="header__brand">
+                <a href="index.html" class="brand-link">
+                    <img src="./src/img/logo-fs.png" alt="FS Consultoria Empresarial" class="header__logo-img">
+                </a>
+                
+                </div>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-desktop__list">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="neoprag.html" class="nav-link">Neoprag</a></li>
+                    <li><a href="neoagro.html" class="nav-link">Neoagro</a></li>
+                    <li><a href="" class="nav-link">Pulsar-X</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <nav class="mobile-menu__nav">
+            <a href="#home" class="mobile-nav-link">Início</a>
+            <a href="neoprag.html" class="mobile-nav-link">Neoprag</a>
+            <a href="neoagro.html" class="mobile-nav-link">Neoagro</a>
+            <a href="pulsar-x.html" class="mobile-nav-link">Pulsar-X</a>
+            <a href="#contato" class="mobile-nav-link">Contato</a>
+        </nav>
+    </div>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero__overlay"></div>
+            <div class="container hero__container">
+                <div class="hero__content animate-fade-up">
+                    <h1 class="hero__title">
+                        Soluções Integradas em <br>Controle de Pragas
+                    </h1>
+                    <p class="hero__subtitle">
+                        Consultoria Empresarial e Serviços Técnicos
+                    </p>
+                    <p class="hero__description">
+                        Estratégia, tecnologia e soluções inteligentes reunidas em quatro empresas para proteção completa de ambientes urbanos e rurais.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#contato" class="btn btn--primary">Falar com Especialista</a>
+                        <a href="#empresas" class="btn btn--secondary">Conhecer Empresas</a>
+                    </div>
+                </div>
+                
+                <div class="hero__stats">
+                    <div class="stat-card">
+                        <span class="stat-card__number">4</span>
+                        <span class="stat-card__label">Empresas Especializadas</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-card__number">100%</span>
+                        <span class="stat-card__label">Soluções Personalizadas</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-card__number">24/7</span>
+                        <span class="stat-card__label">Suporte Disponível</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-card__number">360°</span>
+                        <span class="stat-card__label">Proteção Total</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="empresas" class="section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Nossas Empresas</h2>
+                    <p class="section-description">
+                        Três marcas especializadas, uma única missão: oferecer controle de pragas eficiente, seguro e tecnicamente avançado.
+                    </p>
+                </div>
+
+                <div class="grid grid--3-cols">
+                    <article class="card company-card theme-neoprag">
+                        <div class="company-card__icon logo-container">
+                             <img src="./src/img/logo-neoprag.png" alt="Neoprag" class="card-logo-img">
+                         </div>
+
+                        <span class="company-card__category">Controle Urbano</span>
+                        <p class="company-card__text">
+                            Atendimento residencial, condomínios e indústrias com método profissional e segurança garantida.
+                        </p>
+                        <ul class="check-list">
+                            <li>Residencial e Condomínios</li>
+                            <li>Comercial e Industrial</li>
+                        </ul>
+                        <a href="neoprag.html" class="btn btn--full btn--neoprag">Conhecer Neoprag</a>
+                    </article>
+
+                    <article class="card company-card theme-neoagro">
+                        <div class="company-card__icon logo-container">
+                              <img src="./src/img/logo-neoagro.png" alt="Neoagro" class="card-logo-img">
+                        </div>
+                        
+                        <span class="company-card__category">Controle no Agro</span>
+                        <p class="company-card__text">
+                            Soluções estratégicas para lavouras, silos e armazéns. Controle equilibrado para o campo.
+                        </p>
+                        <ul class="check-list">
+                            <li>Silos e Armazéns</li>
+                            <li>Áreas Rurais Produtivas</li>
+                        </ul>
+                        <a href="neoagro.html" class="btn btn--full btn--neoagro">Conhecer Neoagro</a>
+                    </article>
+
+                    <article class="card company-card theme-pulsar">
+                        <div class="company-card__icon logo-container">
+                                  <img src="./src/img/logo-pulsar.png" alt="Pulsar-X" class="card-logo-img">
+                          </div>
+                    
+                        <span class="company-card__category">Alta Tecnologia</span>
+                        <p class="company-card__text">
+                            Equipamentos de biotecnologia com precisão cirúrgica que eliminam bactérias, fungos e ácaros.
+                        </p>
+                        <ul class="check-list">
+                            <li>Sem evacuação de área</li>
+                            <li>Precisão Cirúrgica</li>
+                        </ul>
+                        <a href="pulsar-x" class="btn btn--full btn--pulsar">Conhecer Pulsar-X</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="porque" class="section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Por que Escolher a FS</h2>
+                    <p class="section-description">
+                        Conveniência de achar as melhores soluções e tecnologia em um só lugar.
+                    </p>
+                </div>
+
+                <div class="grid grid--4-cols mb-large">
+                    <div class="feature-box">
+                        <div class="feature-box__icon"><i class="fas fa-award"></i></div>
+                        <h3>Credibilidade</h3>
+                        <p>Histórico comprovado de excelência.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-box__icon"><i class="fas fa-clipboard-check"></i></div>
+                        <h3>Método Técnico</h3>
+                        <p>Diagnóstico preciso e estratégico.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-box__icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h3>Eficiência</h3>
+                        <p>Resultados rápidos e duradouros.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-box__icon"><i class="fas fa-puzzle-piece"></i></div>
+                        <h3>Ecossistema</h3>
+                        <p>Tudo em um único lugar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="consultoria" class="premium-consulting">
+        <div class="consulting-bg-pattern"></div>
+        
+        <div class="container relative z-10">
+            <div class="consulting-grid">
+                
+                <div class="consulting-content animate-fade-up">
+                    <span class="consulting-badge">Soluções Corporativas</span>
+                    <h2 class="consulting-title">
+                        Eleve o padrão de <br>
+                        <span class="text-gold">Segurança Sanitária</span> da sua empresa.
+                    </h2>
+                    <p class="consulting-desc">
+                        Não vendemos apenas controle de pragas. A FS Consultoria entrega inteligência, conformidade legal e proteção de marca. 
+                        Preparamos seu negócio para as auditorias mais rigorosas do mercado.
+                    </p>
+                    
+                    <a href="https://wa.me/5569993614353" target="_blank" class="btn btn--gold">
+                        Agendar Diagnóstico Executivo
+                    </a>
+                </div>
+
+                <div class="consulting-visual animate-fade-up">
+                    <div class="glass-card">
+                        <h3>O que entregamos:</h3>
+                        <ul class="premium-list">
+                            <li>
+                                <div class="icon-gold"><i class="fas fa-file-contract"></i></div>
+                                <div>
+                                    <strong>Auditorias & Laudos</strong>
+                                    <p>Documentação técnica completa para ANVISA e ISO.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-gold"><i class="fas fa-shield-alt"></i></div>
+                                <div>
+                                    <strong>Gestão de Riscos</strong>
+                                    <p>Mapeamento preventivo de ameaças ao ambiente.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-gold"><i class="fas fa-chalkboard-teacher"></i></div>
+                                <div>
+                                    <strong>Treinamento de Equipes</strong>
+                                    <p>Capacitação do seu time sobre boas práticas.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+   <footer class="main-footer footer--fs">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="./src/img/logo-fs.png" alt="FS Consultoria" class="footer-logo-img">
+                    <span class="footer-slogan">"Excelência e inovação em controle de pragas e consultoria."</span>
+                    <p style="font-size: 0.85rem; opacity: 0.6;">CNPJ: 64.024.526/0001-94</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="neoprag.html">Neoprag (Urbano)</a></li>
+                        <li><a href="neoagro.html">Neoagro (Rural)</a></li>
+                        <li><a href="pulsar-x.html">Pulsar-X (Tech)</a></li>
+                        <li><a href="#">Blog Informativo</a></li>
+                        <li><a href="#">Área do Cliente</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i><span>Rua Walter Dourado, 5386,<br>Centro, Vilhena-RO</span></li>
+                        <li><i class="fas fa-phone-alt"></i><span>(69) 99361-4353</span></li>
+                        <li><i class="fas fa-envelope"></i><span>contato@fsconsultoria.com.br</span></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Conecte-se</h4>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/5569993614353" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 FS Consultoria Empresarial. Todos os direitos reservados.</p>
+                <p class="dev-credits">
+                    Desenvolvido por <a href="https://branct.com" target="_blank">Branct Studio</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./src/js/main.js" defer></script>
+</body>
+</html>

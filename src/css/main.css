@@ -1,0 +1,1894 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    /* Brand Colors */
+    --color-navy-primary: #1a2e4a;
+    --color-navy-secondary: #2c4663;
+    --color-blue-accent: #3a5f8f;
+    --color-blue-light: #7db3ff;
+    
+    /* Sub-brands */
+    --color-neoprag: #72A724;
+    --color-neoagro: #8ABE49;
+    --color-pulsar: #26538F;
+
+    /* Neutrals */
+    --color-white: #ffffff;
+    --color-gray-50: #f8f9fa;
+    --color-gray-100: #e9ecef;
+    --color-gray-600: #6c757d;
+    --color-gray-800: #343a40;
+
+    /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing & Layout */
+    --container-width: 1200px;
+    --header-height: 100px;
+    --border-radius: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-gray-800);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* =========================================
+   AJUSTE DE LOGO (CORREÇÃO DEFINITIVA)
+   ========================================= */
+
+/* 1. Contentor da Logo */
+.header__brand {
+    height: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+    overflow: hidden; /* Corta o excesso de margem branca */
+    max-width: 600px; 
+    flex-shrink: 0;
+}
+
+/* 2. A Imagem da Logo */
+.header__logo-img {
+    /* Forçamos uma altura GRANDE para que o texto fique visível */
+    /* Como o pai tem 'overflow: hidden', as bordas vazias somem */
+    height: 160px !important; /* !important garante que nada sobrescreva */
+    width: auto;
+    
+    /* Filtro para deixar branco */
+    filter: brightness(0) invert(1);
+    
+    /* Garante nitidez */
+    object-fit: contain; 
+    transition: opacity 0.3s ease;
+}
+
+.header__logo-img:hover {
+    opacity: 0.8;
+}
+
+/* Ajuste para Telemóveis */
+@media (max-width: 1024px) {
+    .header__logo-img {
+        height: 120px !important; /* Ajuste proporcional */
+    }
+}
+
+/* =========================================
+   2. UTILITIES & LAYOUT
+   ========================================= */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.grid { display: grid; gap: 2rem; }
+.text-center { text-align: center; }
+.bg-light { background-color: var(--color-gray-50); }
+.mb-large { margin-bottom: 4rem; }
+
+/* Grid Systems */
+@media (min-width: 768px) {
+    .grid--2-cols { grid-template-columns: repeat(2, 1fr); }
+    .grid--3-cols { grid-template-columns: repeat(3, 1fr); }
+    .grid--4-cols { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* =========================================
+   3. HEADER & NAVEGAÇÃO
+   ========================================= */
+.header {
+    position: fixed;
+    top: 0; width: 100%;
+    height: var(--header-height);
+    z-index: 1000;
+    background: rgba(26, 46, 74, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header__logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+.header__subtitle {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #b8c9dd;
+    letter-spacing: 1px;
+}
+
+/* --- COMPORTAMENTO MOBILE E TABLET (Padrão) --- */
+
+/* Esconde o menu de links escrito por padrão */
+.nav-desktop { 
+    display: none; 
+}
+
+/* Configuração do botão Hambúrguer (Visível por padrão) */
+.hamburger {
+    background: none; 
+    border: none; 
+    cursor: pointer;
+    display: flex; 
+    flex-direction: column; 
+    gap: 5px;
+    z-index: 1001; /* Garante que fique sobre o menu */
+}
+
+.hamburger span {
+    display: block; 
+    width: 28px; 
+    height: 3px;
+    background: var(--color-white); 
+    transition: 0.3s;
+    border-radius: 3px;
+}
+
+/* Animação do X quando ativo */
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+/* Menu Mobile Overlay */
+.mobile-menu {
+    position: fixed; 
+    top: 0; 
+    left: 0; /* Agora cobre a tela toda ou vem da direita, ajuste conforme preferência */
+    width: 100%;
+    height: 100vh;
+    background: var(--color-navy-primary);
+    padding-top: 100px; /* Espaço para não ficar atrás do header */
+    transform: translateY(-150%);
+    transition: transform 0.4s ease;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.mobile-menu.active { 
+    transform: translateY(0); 
+}
+
+.mobile-nav-link {
+    color: white; 
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 80%;
+    text-align: center;
+}
+
+/* --- COMPORTAMENTO DESKTOP (Telas acima de 1024px) --- */
+@media (min-width: 1024px) {
+    
+    /* Mostra o menu de links */
+    .nav-desktop { 
+        display: flex; 
+        align-items: center;
+    }
+
+    .nav-desktop__list { 
+        display: flex; 
+        gap: 2.5rem; 
+        align-items: center;
+    }
+
+    .nav-link {
+        color: var(--color-white);
+        font-weight: 500;
+        position: relative;
+        font-size: 1rem;
+    }
+
+    .nav-link::after {
+        content: ''; position: absolute; bottom: -5px; left: 0;
+        width: 0; height: 2px; background: var(--color-blue-light);
+        transition: width 0.3s;
+    }
+    
+    .nav-link:hover::after { width: 100%; }
+
+    /* ESCONDE O HAMBURGUER NO COMPUTADOR */
+    .hamburger { 
+        display: none !important; 
+    }
+    
+    /* Garante que o menu mobile não apareça no desktop mesmo se ativo */
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    padding-top: var(--header-height);
+    display: flex; align-items: center;
+    background: linear-gradient(135deg, var(--color-navy-primary), var(--color-navy-secondary));
+    overflow: hidden;
+}
+
+/* Background Pattern (SVG Grid) */
+.hero__overlay {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+}
+
+.hero__container {
+    display: grid; gap: 4rem; position: relative; z-index: 2;
+}
+
+@media (min-width: 992px) {
+    .hero__container { grid-template-columns: 1.2fr 0.8fr; align-items: center; }
+}
+
+.hero__title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-white);
+    line-height: 1.1; margin-bottom: 1.5rem;
+}
+.hero__subtitle {
+    font-size: 1.25rem; color: var(--color-blue-light); margin-bottom: 1rem;
+}
+.hero__description {
+    color: #ced4da; font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 600px;
+}
+
+/* Buttons */
+.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+    display: inline-block; padding: 0.9rem 2rem;
+    border-radius: 8px; font-weight: 600; cursor: pointer;
+}
+.btn--primary {
+    background: linear-gradient(135deg, var(--color-blue-accent), #26538f);
+    color: white; box-shadow: 0 4px 15px rgba(58, 95, 143, 0.4);
+}
+.btn--secondary {
+    border: 2px solid white; color: white;
+}
+.btn--secondary:hover { background: white; color: var(--color-navy-primary); }
+
+/* Stats Grid */
+.hero__stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+}
+.stat-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem; text-align: center; border-radius: var(--border-radius);
+    transition: transform 0.3s;
+}
+.stat-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); }
+.stat-card__number {
+    display: block; font-size: 2.5rem; font-weight: 700; color: var(--color-white);
+}
+.stat-card__label { font-size: 0.9rem; color: #b8c9dd; }
+
+/* =========================================
+   5. COMPONENTS (Cards & Features)
+   ========================================= */
+.section { padding: 5rem 0; }
+.section-title {
+    font-size: 2.5rem; color: var(--color-navy-primary);
+    margin-bottom: 1rem; display: inline-block; position: relative;
+}
+.section-title::after {
+    content: ''; display: block; width: 60px; height: 4px;
+    background: var(--color-blue-accent); margin: 10px auto 0;
+}
+.section-description {
+    max-width: 700px; margin: 0 auto 3rem; color: var(--color-gray-600);
+}
+
+/* Company Cards */
+.company-card {
+    background: white; padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    border: 1px solid var(--color-gray-100);
+    transition: transform 0.3s;
+    display: flex; flex-direction: column;
+}
+.company-card:hover { transform: translateY(-10px); }
+
+/* AJUSTE FINAL: Container da Logo (Centralizado e Limpo) */
+.company-card__icon {
+    width: 100%;          /* Ocupa a largura total para centralizar */
+    height: auto;
+    background: none;     /* Sem fundo colorido */
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    
+    /* Centralização Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-bottom: 2rem; /* Espaço extra já que removemos o título */
+}
+
+/* AJUSTE FINAL: Imagem da Logo (Maior) */
+.card-logo-img {
+    height: 90px;         /* Aumentado de 60px para 90px */
+    width: auto;
+    max-width: 80%;       /* Garante que não encoste nas bordas laterais */
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito suave ao passar o mouse */
+.company-card:hover .card-logo-img {
+    transform: scale(1.1);
+}
+
+/* Títulos (Mantido caso decida usar, mas não é necessário se removeu do HTML) */
+.company-card__title { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+/* Categoria (Texto pequeno "CONTROLE URBANO") - Centralizado */
+.company-card__category {
+    display: block; 
+    text-align: center; /* Centraliza o texto */
+    font-size: 0.8rem; font-weight: 700;
+    text-transform: uppercase; color: var(--color-gray-600); 
+    margin-bottom: 1.5rem;
+    margin-top: -0.5rem; /* Ajuste fino para aproximar da logo */
+}
+
+.company-card__text { font-size: 0.95rem; color: var(--color-gray-600); margin-bottom: auto; }
+
+/* Themes (Apenas cores de texto/botão) */
+.theme-neoprag .company-card__title { color: #3C5518; }
+.btn--neoprag { background: var(--color-neoprag); color: white; margin-top: 1.5rem; text-align: center;}
+
+.theme-neoagro .company-card__title { color: #537524; }
+.btn--neoagro { background: var(--color-neoagro); color: white; margin-top: 1.5rem; text-align: center;}
+
+.theme-pulsar .company-card__title { color: var(--color-pulsar); }
+.btn--pulsar { background: var(--color-pulsar); color: white; margin-top: 1.5rem; text-align: center;}
+
+/* Check List */
+.check-list li {
+    font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--color-gray-600);
+    display: flex; align-items: center; gap: 8px;
+}
+.check-list li::before {
+    content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+}
+.theme-neoprag .check-list li::before { color: var(--color-neoprag); }
+.theme-neoagro .check-list li::before { color: var(--color-neoagro); }
+.theme-pulsar .check-list li::before { color: var(--color-pulsar); }
+
+/* Feature Box */
+.feature-box { text-align: center; padding: 1.5rem; }
+.feature-box__icon {
+    width: 70px; height: 70px; background: var(--color-blue-accent);
+    color: white; border-radius: 50%; margin: 0 auto 1.5rem;
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+}
+
+/* Animations */
+.animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+}
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* =========================================
+   6. NEOPRAG IDENTITY & VARIANTS
+   ========================================= */
+:root {
+    /* Neoprag Palette */
+    --color-neoprag-primary: #B3FF5E;
+    --color-neoprag-green: #8ABE49;
+    --color-neoprag-dark: #72A724;
+    --color-neoprag-forest: #3C5518;
+    --color-neoprag-gray: #585858;
+
+    /* Fonts specific to Neoprag */
+    --font-neoprag-display: 'Bree Serif', serif;
+    --font-neoprag-body: 'Ruda', sans-serif;
+}
+
+/* Page Modifier */
+.page-neoprag {
+    font-family: var(--font-neoprag-body);
+    color: var(--color-neoprag-gray);
+}
+
+.page-neoprag h1, 
+.page-neoprag h2, 
+.page-neoprag h3 {
+    font-family: var(--font-neoprag-display);
+    color: var(--color-neoprag-forest);
+}
+
+/* Header Variant (White) */
+.header--white {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.header--white .nav-link { color: var(--color-gray-600); }
+.header--white .nav-link:hover,
+.header--white .nav-link.active { color: var(--color-neoprag-dark); }
+.header--white .nav-link.active::after { background: var(--color-neoprag-dark); width: 100%; }
+
+/* --- CORREÇÃO DA LOGO NO HEADER BRANCO --- */
+.header--white .header__logo-img {
+    filter: none !important; /* Remove o filtro branco para mostrar a cor original */
+    height: 90px !important; /* Tamanho ajustado para a logo da Neoprag */
+    object-fit: contain;
+}
+/* ----------------------------------------- */
+
+/* Buttons Variant */
+.btn--neoprag-primary {
+    background: var(--color-neoprag-dark);
+    color: white; 
+    border: 2px solid transparent; 
+    transition: all 0.3s ease;
+}
+.btn--neoprag-primary:hover {
+    background: var(--color-neoprag-forest);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(114, 167, 36, 0.4);
+}
+
+.btn--neoprag-secondary {
+    background: transparent;
+    color: var(--color-neoprag-dark);
+    border: 2px solid var(--color-neoprag-dark);
+    transition: all 0.3s ease;
+}
+.btn--neoprag-secondary:hover {
+    background: var(--color-neoprag-dark);
+    color: white;
+}
+
+/* =========================================
+   7. NEOPRAG SECTIONS (HERO & OTHERS)
+   ========================================= */
+
+/* Hero Premium */
+.hero--neoprag {
+    position: relative;
+    min-height: 85vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--header-height);
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 20%, #3c5518 0%, #1a2e05 100%);
+    color: white;
+}
+
+/* --- CORREÇÃO: Posicionamento da Cidade (SVG do HTML) --- */
+.hero__cityscape {
+    position: absolute;
+    bottom: -1px; /* Garante que cola no fundo sem linhas brancas */
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+    line-height: 0;
+}
+
+/* Estilo para o desenho SVG dentro da div */
+.hero__cityscape svg {
+    width: 100%;
+    height: auto;
+    min-height: 150px; /* Garante que os prédios apareçam mesmo em telas largas */
+    display: block;
+}
+
+/* Texturas e Conteúdo */
+.hero--neoprag::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 40px 40px; opacity: 0.3; z-index: 1;
+}
+
+.hero__container-center {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding-bottom: 50px; /* Espaço extra para não ficar em cima dos prédios */
+}
+
+.hero__title {
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.hero__description {
+    font-size: 1.25rem; line-height: 1.6; color: #e2e8f0;
+    max-width: 800px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero__badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--color-neoprag-primary);
+}
+/* =========================================
+   AJUSTE DE LOGO INTERNA (FUNDO BRANCO)
+   ========================================= */
+
+/* Quando o header for branco (Neoprag), a logo precisa ter cores originais */
+.header--white .header__logo-img {
+    /* Remove o filtro que deixava branco */
+    filter: none !important; 
+    
+    /* Ajuste de tamanho específico para esta logo */
+    /* Como as logos costumam ter formatos diferentes, talvez 180px seja muito aqui */
+    /* Tente começar com 90px ou 100px e aumente se precisar */
+    height: 100px !important; 
+    
+    /* Garante que não distorça */
+    object-fit: contain;
+}
+
+/* Ajuste do container para centralizar */
+.header--white .header__brand {
+    display: flex;
+    align-items: center;
+    /* Removemos o limite de largura estrito para a logo interna respirar */
+    max-width: none; 
+}
+
+/* =========================================
+   7. NEOPRAG SECTIONS (HERO COM LEITURA MELHORADA)
+   ========================================= */
+
+/* Hero Premium */
+.hero--neoprag {
+    position: relative;
+    height: 100vh; 
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--header-height);
+    
+    /* FOTO DE FUNDO */
+    background-image: url('../img/hero-neoprag.jpg'); 
+    background-size: cover;       
+    background-position: center center;  
+    background-repeat: no-repeat;
+    background-color: #3c5518;
+    color: white;
+}
+
+/* --- CORREÇÃO DE LEITURA (PELÍCULA MAIS ESCURA) --- */
+.hero--neoprag::before {
+    content: ''; 
+    position: absolute; 
+    inset: 0;
+    /* Aumentei a opacidade para 0.9 (90%) e 0.85 (85%) para escurecer bem */
+    background: linear-gradient(
+        to bottom, 
+        rgba(45, 66, 15, 0.92),   /* Verde Musgo quase sólido em cima */
+        rgba(26, 46, 74, 0.85)    /* Azul Profundo em baixo */
+    );
+    z-index: 1;
+}
+
+.hero__container-center {
+    position: relative; 
+    z-index: 2;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- CORREÇÃO DE LEITURA (SOMBRA NO TEXTO) --- */
+.hero__title {
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.1;
+    color: #ffffff; /* Garante que o texto principal seja Branco Puro */
+    
+    /* Sombra preta forte atrás das letras para separar da foto */
+    text-shadow: 0 4px 20px rgba(0,0,0,0.8); 
+    margin-bottom: 1.5rem;
+}
+
+/* Garante que o destaque (span) seja verde limão brilhante para contrastar com o fundo escuro */
+.hero__title span {
+    color: #B3FF5E !important; /* Força a cor verde neon */
+    text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+}
+
+.hero__description {
+    font-size: 1.25rem; 
+    line-height: 1.6; 
+    color: #f1f1f1; /* Branco levemente off-white */
+    max-width: 800px; 
+    /* Sombra também na descrição */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+}
+
+.hero__badge {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.4); /* Fundo preto transparente para o badge */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: #B3FF5E; /* Verde Neon */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .hero--neoprag {
+        background-position: center top; 
+    }
+}
+/* =========================================
+   8. NEOPRAG: SERVIÇOS, PROCESSO E CONTEÚDO
+   ========================================= */
+
+/* --- SERVIÇOS (Os Cards com Ícones) --- */
+.service-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra suave */
+    border: 1px solid #f0f0f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Garante que todos tenham a mesma altura */
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Sobe um pouco ao passar o mouse */
+    box-shadow: 0 15px 40px rgba(114, 167, 36, 0.15); /* Sombra verde suave */
+    border-color: var(--color-neoprag-primary);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--color-neoprag-dark);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-neoprag-forest);
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* --- NOSSO PROCESSO (As Bolinhas Numeradas) --- */
+.process-step {
+    text-align: center;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.process-number {
+    width: 70px;
+    height: 70px;
+    background: var(--color-neoprag-dark);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-neoprag-display);
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 5px 15px rgba(114, 167, 36, 0.4);
+    transition: transform 0.3s;
+}
+
+.process-step:hover .process-number {
+    transform: scale(1.1) rotate(10deg);
+    background: var(--color-neoprag-forest);
+}
+
+.process-step h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-neoprag-forest);
+}
+
+/* --- POR QUE ESCOLHER (Ícones laterais) --- */
+.differential-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border-left: 4px solid var(--color-neoprag-primary);
+    transition: transform 0.3s;
+}
+
+.differential-item:hover {
+    transform: translateX(10px);
+    background: #fcfffe;
+}
+
+.differential-item i {
+    font-size: 1.8rem;
+    color: var(--color-neoprag-dark);
+    margin-right: 1.5rem;
+    min-width: 40px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.differential-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-neoprag-forest);
+}
+
+/* --- DEPOIMENTOS / CLIENTES --- */
+.testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    height: 100%;
+}
+
+.stars {
+    color: #FFB800; /* Cor amarela das estrelas */
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-card cite {
+    font-weight: 700;
+    color: var(--color-neoprag-forest);
+    display: block;
+    font-style: normal;
+}
+
+.testimonial-card span {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* --- AJUSTE DE TITULOS DAS SEÇÕES --- */
+.section-title {
+    color: var(--color-neoprag-forest);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 3rem;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--color-neoprag-primary);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* =========================================
+   9. NEOPRAG: AVALIAÇÕES & FORMULÁRIO (CORREÇÃO DE LAYOUT)
+   ========================================= */
+
+/* --- CORREÇÃO DO GRID (Para "Por que escolher" e "Avaliações") --- */
+/* Garante que fiquem lado a lado corretamente e alinhados ao topo */
+.grid--2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem; /* Espaço maior entre as colunas */
+    align-items: start; /* Impede que uma coluna estique a outra */
+}
+
+/* Em telas menores, volta a ser uma coluna só */
+@media (max-width: 900px) {
+    .grid--2-cols {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+/* --- ESTILO DOS DEPOIMENTOS (CARTÕES INDIVIDUAIS) --- */
+/* Container da direita onde ficam os depoimentos */
+.testimonials-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaço entre cada avaliação */
+}
+
+/* O Cartão de cada cliente */
+.testimonial-card {
+    background: #fdfdfd; /* Branco levemente off-white */
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 5px solid var(--color-neoprag-primary); /* Linha verde na esquerda */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateX(5px); /* Efeito sutil ao passar o mouse */
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(114, 167, 36, 0.15);
+}
+
+.stars {
+    color: #FFB800;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    display: block;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    color: var(--color-neoprag-forest);
+    font-size: 0.9rem;
+}
+
+.testimonial-author span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2px;
+}
+
+/* --- SEÇÃO DE FORMULÁRIO (SOLICITE ORÇAMENTO) --- */
+/* Adicionamos margem no topo para separar das avaliações */
+#contato {
+    margin-top: 6rem; 
+    padding-top: 4rem;
+    border-top: 1px solid #eee; /* Linha sutil para separar */
+    position: relative;
+    background: white; /* Garante fundo branco limpo */
+}
+
+/* Container do Formulário */
+.form-box {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* Sombra elegante */
+    border: 1px solid #e0e0e0;
+}
+
+.form-neoprag .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-neoprag label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-neoprag-forest);
+}
+
+.form-neoprag input,
+.form-neoprag select,
+.form-neoprag textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    font-family: var(--font-body);
+}
+
+.form-neoprag input:focus,
+.form-neoprag select:focus,
+.form-neoprag textarea:focus {
+    outline: none;
+    border-color: var(--color-neoprag-primary);
+    background-color: #faffff;
+}
+
+/* Botão do Formulário - Largo e Verde */
+.form-neoprag button[type="submit"] {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: var(--color-neoprag-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.form-neoprag button[type="submit"]:hover {
+    background: var(--color-neoprag-forest);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(60, 85, 24, 0.3);
+} 
+/* =========================================
+   10. NEOAGRO IDENTITY & VARIANTS
+   ========================================= */
+:root {
+    /* Neoagro Palette */
+    --color-neoagro-primary: #8ABE49;
+    --color-neoagro-light: #B3FF5E;
+    --color-neoagro-medium: #72A724;
+    --color-neoagro-dark: #3C5518;
+    --color-neoagro-gray: #585858;
+
+    /* Fonts specific to Neoagro */
+    --font-neoagro-body: 'Open Sans', sans-serif;
+}
+
+/* Page Modifier */
+.page-neoagro {
+    font-family: var(--font-neoagro-body);
+    color: var(--color-gray-800);
+}
+
+.page-neoagro h1, 
+.page-neoagro h2, 
+.page-neoagro h3 {
+    font-family: var(--font-neoprag-display); /* Shared Bree Serif */
+    color: var(--color-neoagro-dark);
+}
+
+/* Header Variant (Neoagro Gradient) */
+.header--neoagro {
+    background: linear-gradient(135deg, var(--color-neoagro-dark) 0%, var(--color-neoagro-medium) 100%);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    border-bottom: none;
+}
+/* Force white text on this specific header */
+.header--neoagro .header__logo,
+.header--neoagro .nav-link, 
+.header--neoagro .hamburger span { 
+    color: white !important; 
+}
+.header--neoagro .nav-link::after { background: var(--color-neoagro-light); }
+.header--neoagro .hamburger span { background: white; }
+
+/* Buttons Variant */
+.btn--neoagro-primary {
+    background: var(--color-neoagro-primary);
+    color: white; border: none;
+}
+.btn--neoagro-primary:hover {
+    background: var(--color-neoagro-medium);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138,190,73,0.4);
+}
+
+.btn--neoagro-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+.btn--neoagro-secondary:hover {
+    background: white;
+    color: var(--color-neoagro-dark);
+}
+/* =========================================
+   AJUSTE LOGO NEOAGRO (CABEÇALHO VERDE)
+   ========================================= */
+
+.header--neoagro .header__logo-img {
+    /* Altura ajustada para o cabeçalho da Neoagro */
+    height: 90px !important;
+    width: auto;
+    
+    /* O TRUQUE: Como o fundo é verde, pintamos a logo de BRANCO */
+    /* brightness(0) deixa preto -> invert(1) vira branco puro */
+    filter: brightness(0) invert(1) !important;
+    
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.header--neoagro .header__logo-img:hover {
+    transform: scale(1.05); /* Leve zoom ao passar o mouse */
+    opacity: 0.9;
+}
+
+/* Ajuste do container para centralizar verticalmente */
+.header--neoagro .header__brand {
+    display: flex;
+    align-items: center;
+    max-width: none; /* Remove restrições antigas se houver */
+}
+/* =========================================
+   SEÇÃO HERO NEOAGRO (AGRO + TECH)
+   ========================================= */
+
+.hero--neoagro {
+    position: relative;
+    /* Define tela cheia (Full Screen) */
+    height: 100vh;
+    min-height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--header-height);
+    
+    /* FOTO DE FUNDO */
+    /* Certifique-se de salvar a imagem como 'hero-neoagro.jpg' na pasta img */
+    background-image: url('../img/hero-neoagro.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    background-color: #4a6fa5; 
+    color: white;
+}
+
+/* PELÍCULA ESCURA (OVERLAY) - TONS DE AGRO */
+/* Essencial para ler o texto branco em cima da foto */
+.hero--neoagro::before {
+    content: ''; 
+    position: absolute; 
+    inset: 0;
+    /* Gradiente: Verde Folha escuro em cima -> Marrom/Terra escuro em baixo */
+    background: linear-gradient(
+        to bottom, 
+        rgba(65, 105, 20, 0.9),   /* Verde Agro Escuro */
+        rgba(40, 30, 20, 0.85)    /* Tom Terroso Escuro */
+    );
+    z-index: 1;
+}
+
+/* Garante que o texto fique acima da imagem */
+.hero--neoagro .hero__container-center {
+    position: relative; 
+    z-index: 2;
+    width: 100%;
+}
+
+/* Estilos de Texto Específicos */
+.hero--neoagro .hero__title {
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.1;
+    color: white;
+    /* Sombra forte para destacar do fundo */
+    text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+}
+
+.hero--neoagro .hero__description {
+    font-size: 1.25rem; 
+    color: #f0f0f0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+}
+
+/* Botão Verde (Primary) */
+.btn--neoagro-primary {
+    background-color: #8ABE49; 
+    color: white;
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn--neoagro-primary:hover {
+    background-color: #72A724;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* Botão Transparente (Secondary) */
+.btn--neoagro-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.3s;
+}
+
+.btn--neoagro-secondary:hover {
+    background: white;
+    color: #3C5518 !important; /* Texto fica verde escuro ao passar o mouse */
+}
+/* =========================================
+   11. NEOAGRO SECTIONS (CORRIGIDO)
+   ========================================= */
+
+/* AVISO: Mantenha apenas esta definição de hero--neoagro nesta seção */
+.hero--neoagro {
+    position: relative;
+    height: 100vh;
+    min-height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--header-height);
+    
+    /* FOTO DE FUNDO */
+    background-image: url('../img/hero-neoagro.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    background-color: #4a6fa5; 
+    color: white;
+}
+
+/* PELÍCULA ESCURA (OVERLAY) */
+.hero--neoagro::before {
+    content: ''; 
+    position: absolute; 
+    inset: 0;
+    /* Gradiente Verde/Terra para leitura */
+    background: linear-gradient(
+        to bottom, 
+        rgba(65, 105, 20, 0.9),
+        rgba(40, 30, 20, 0.85)
+    );
+    z-index: 1;
+}
+
+/* Garante que o texto fique acima da imagem */
+.hero--neoagro .hero__container-center {
+    position: relative; 
+    z-index: 2;
+    width: 100%;
+}
+
+/* Badge (Etiqueta) específica desta Hero */
+.hero__badge {
+    display: inline-block;
+    background: rgba(179, 255, 94, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    color: var(--color-neoagro-light);
+    font-weight: 700; font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(179, 255, 94, 0.3);
+}
+
+/* Cards de Ícones (Destaques) */
+.icon-wrapper {
+    width: 70px; height: 70px;
+    background: linear-gradient(135deg, var(--color-neoagro-light) 0%, var(--color-neoagro-primary) 100%);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem; color: white;
+    box-shadow: 0 8px 20px rgba(138,190,73,0.3);
+}
+
+/* Efeitos nos Cards */
+.card--neoagro {
+    border-top: 4px solid var(--color-neoagro-primary);
+    transition: 0.3s;
+}
+.card--neoagro:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(138,190,73,0.15);
+}
+
+/* Cards de Diferenciais (Laterais) */
+.diff-card {
+    background: white; padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    height: 100%;
+}
+.diff-card__icon {
+    background: rgba(138, 190, 73, 0.15);
+    padding: 1rem; border-radius: 12px;
+    color: var(--color-neoagro-dark); font-size: 1.5rem;
+}
+
+/* Caixa de Citação */
+.quote-box {
+    background: white; padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    text-align: center; position: relative;
+    margin-top: 3rem;
+}
+.quote-box i { color: var(--color-neoagro-primary); font-size: 2.5rem; margin-bottom: 1.5rem; }
+.quote-box p { font-size: 1.2rem; font-style: italic; color: var(--color-gray-600); margin-bottom: 2rem; }
+.quote-author { display: flex; align-items: center; justify-content: center; gap: 1rem; }
+.quote-avatar {
+    width: 50px; height: 50px;
+    background: linear-gradient(135deg, var(--color-neoagro-primary), var(--color-neoagro-dark));
+    color: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-weight: bold;
+}
+
+/* Rodapé Neoagro */
+.footer--neoagro {
+    background: #2a3b15;
+    color: #e0e0e0; padding: 4rem 0 2rem;
+}
+.footer--neoagro a:hover { color: var(--color-neoagro-light); }
+/* =========================================
+   12. PULSAR-X IDENTITY & VARIANTS
+   ========================================= */
+:root {
+    /* Pulsar Palette */
+    --color-pulsar-blue: #26538F;
+    --color-pulsar-dark: #101825; /* Darker navy, almost black */
+    --color-pulsar-mid: #373E68;
+    --color-pulsar-accent: #4cc9f0; /* Cyan for glow effects */
+    --color-pulsar-text: #e2e8f0;
+
+    /* Fonts specific to Pulsar */
+    --font-pulsar-display: 'Orbitron', sans-serif;
+    --font-pulsar-body: 'Poppins', sans-serif;
+}
+
+/* Page Modifier */
+.page-pulsar {
+    font-family: var(--font-pulsar-body);
+    background-color: #f8fafc;
+    color: var(--color-gray-800);
+}
+
+.page-pulsar h1, 
+.page-pulsar h2, 
+.page-pulsar h3 {
+    font-family: var(--font-pulsar-display);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Header Variant (Dark Tech) */
+.header--pulsar {
+    background: rgba(16, 24, 37, 0.95);
+    border-bottom: 1px solid rgba(76, 201, 240, 0.3); /* Subtle cyan border */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.header--pulsar .nav-link { color: white; font-family: var(--font-pulsar-body); font-size: 0.9rem; }
+.header--pulsar .nav-link:hover,
+.header--pulsar .nav-link.active { color: var(--color-pulsar-accent); }
+.header--pulsar .nav-link::after { background: var(--color-pulsar-accent); }
+.header--pulsar .hamburger span { background: white; }
+
+/* Buttons Variant */
+.btn--pulsar-primary {
+    background: var(--color-pulsar-blue);
+    color: white; 
+    border: 1px solid rgba(255,255,255,0.1);
+    font-family: var(--font-pulsar-display);
+    letter-spacing: 2px;
+    position: relative; overflow: hidden;
+}
+.btn--pulsar-primary:hover {
+    background: var(--color-pulsar-mid);
+    box-shadow: 0 0 15px rgba(38, 83, 143, 0.6);
+    border-color: var(--color-pulsar-accent);
+}
+
+.btn--pulsar-secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid var(--color-pulsar-accent);
+    font-family: var(--font-pulsar-display);
+    letter-spacing: 1px;
+}
+.btn--pulsar-secondary:hover {
+    background: var(--color-pulsar-accent);
+    color: var(--color-pulsar-dark);
+    box-shadow: 0 0 20px rgba(76, 201, 240, 0.4);
+}
+
+/* =========================================
+   13. PULSAR-X SECTIONS
+   ========================================= */
+
+/* Hero Pulsar */
+.hero--pulsar {
+    background: linear-gradient(135deg, #000000 0%, var(--color-pulsar-dark) 60%, #1a2e4a 100%);
+    position: relative;
+    padding-top: 160px;
+    color: white;
+}
+
+/* Grid Overlay Effect */
+.hero--pulsar::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(76, 201, 240, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(76, 201, 240, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+/* Tech Icon Pulse Animation */
+.tech-pulse-icon {
+    font-size: 4rem; color: var(--color-pulsar-accent);
+    margin-bottom: 2rem; display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(76, 201, 240, 0.5));
+    animation: pulseGlow 3s infinite;
+}
+@keyframes pulseGlow {
+    0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 10px rgba(76, 201, 240, 0.5)); }
+    50% { opacity: 0.8; transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(76, 201, 240, 0.8)); }
+}
+
+/* Tech Cards (Dark or Light variant) */
+.card--tech {
+    background: white; border: 1px solid #e2e8f0;
+    padding: 2.5rem; border-radius: 8px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative; overflow: hidden;
+}
+.card--tech::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--color-pulsar-blue), var(--color-pulsar-accent));
+    transform: scaleX(0); transform-origin: left; transition: 0.4s;
+}
+.card--tech:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(38, 83, 143, 0.15);
+}
+.card--tech:hover::before { transform: scaleX(1); }
+
+/* Specs Tags */
+.spec-tag {
+    display: inline-block; padding: 4px 12px;
+    background: rgba(38, 83, 143, 0.1);
+    color: var(--color-pulsar-blue);
+    font-size: 0.75rem; font-weight: 600;
+    border-radius: 4px; margin: 0 4px 8px 0;
+    border: 1px solid rgba(38, 83, 143, 0.2);
+}
+
+/* Feature Grid Dark */
+.bg-tech-dark {
+    background: var(--color-pulsar-dark);
+    color: white; position: relative;
+}
+.feature-tech { text-align: center; padding: 2rem; }
+.feature-tech i {
+    font-size: 3rem; margin-bottom: 1.5rem;
+    background: -webkit-linear-gradient(45deg, var(--color-pulsar-accent), var(--color-pulsar-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Footer Pulsar */
+.footer--pulsar {
+    background: #0b111a; border-top: 1px solid rgba(255,255,255,0.05);
+    color: #94a3b8; padding: 4rem 0 2rem;
+}
+.footer--pulsar h3, .footer--pulsar h4 { color: white; }
+.footer--pulsar a:hover { color: var(--color-pulsar-accent); }
+/* =========================================
+   14. SEÇÃO PREMIUM: CONSULTORIA
+   ========================================= */
+
+.premium-consulting {
+    position: relative;
+    background: #0b1623; /* Azul Quase Preto (Sofisticado) */
+    padding: 6rem 0;
+    overflow: hidden;
+    color: white;
+}
+
+/* Padrão de fundo sutil (Grid tecnológica) */
+.consulting-bg-pattern {
+    position: absolute; inset: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.6;
+}
+
+/* Layout Grid */
+.consulting-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .consulting-grid { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* Tipografia e Badge */
+.consulting-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15); /* Fundo Dourado Transparente */
+    color: #d4af37; /* Dourado */
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.consulting-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.text-gold {
+    color: #d4af37; /* Cor Ouro */
+    font-style: italic;
+    font-family: var(--font-neoprag-display); /* Usa a fonte serifada para elegância */
+}
+
+.consulting-desc {
+    font-size: 1.1rem;
+    color: #a0aec0;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    max-width: 550px;
+}
+
+@media (max-width: 900px) { .consulting-desc { margin: 0 auto 2.5rem; } }
+
+/* Botão Premium (Dourado) */
+.btn--gold {
+    background: linear-gradient(135deg, #d4af37, #b49023);
+    color: #0b1623;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    border-radius: 6px;
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #ecc962;
+}
+
+.btn--gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    color: #000;
+}
+
+/* Card Visual (Efeito de Vidro) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.glass-card h3 {
+    font-size: 1.3rem; margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 1rem;
+}
+
+/* Lista de Benefícios */
+.premium-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.premium-list li:last-child { margin-bottom: 0; }
+
+.icon-gold {
+    width: 45px; height: 45px; flex-shrink: 0;
+    background: linear-gradient(135deg, #2a3b4c, #15202b);
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+}
+
+.premium-list strong {
+    display: block; color: white; font-size: 1.1rem; margin-bottom: 0.3rem;
+}
+
+.premium-list p {
+    font-size: 0.9rem; color: #a0aec0; margin: 0;
+}
+
+/* =========================================
+   15. RODAPÉ PADRONIZADO (MULTI-TEMAS)
+   ========================================= */
+
+.main-footer {
+    color: #e2e8f0;
+    padding: 5rem 0 2rem;
+    font-size: 0.95rem;
+}
+
+/* --- VARIAÇÕES DE CORES DO RODAPÉ --- */
+.footer--fs {
+    background: #0f1c2e; /* Azul Quase Preto */
+    border-top: 4px solid var(--color-blue-accent);
+}
+
+.footer--neoprag {
+    background: #23330d; /* Verde Floresta Profundo */
+    border-top: 4px solid var(--color-neoprag);
+}
+
+.footer--neoagro {
+    background: linear-gradient(to bottom, #2a3b15, #1a1a1a); /* Agro Dark */
+    border-top: 4px solid var(--color-neoagro);
+}
+
+.footer--pulsar {
+    background: #050a14; /* Tech Black */
+    border-top: 4px solid var(--color-pulsar-accent);
+}
+
+/* --- LAYOUT DO RODAPÉ --- */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+@media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* Colunas */
+.footer-col h4 {
+    color: white; font-size: 1.1rem; margin-bottom: 1.5rem;
+    text-transform: uppercase; letter-spacing: 1px;
+}
+
+.footer-logo-img {
+    height: 100px; width: auto; object-fit: contain;
+    filter: brightness(0) invert(1); /* Deixa a logo branca */
+    margin-bottom: 1rem;
+}
+
+.footer-slogan {
+    opacity: 0.7; font-style: italic; margin-bottom: 1.5rem; display: block;
+}
+
+.footer-links li { margin-bottom: 0.8rem; }
+.footer-links a { color: #b0b0b0; transition: 0.3s; }
+.footer-links a:hover { color: white; padding-left: 5px; }
+
+.footer-contact li {
+    margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px; color: #b0b0b0;
+}
+.footer-contact i { margin-top: 4px; color: white; }
+
+.footer-social { display: flex; gap: 15px; margin-top: 1rem; }
+.social-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: white; transition: 0.3s;
+}
+.social-btn:hover { background: white; color: #000; transform: translateY(-3px); }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.85rem; opacity: 0.6;
+}
+/* =========================================
+   CRÉDITOS DO DESENVOLVEDOR (FOOTER)
+   ========================================= */
+
+.dev-credits {
+    margin-top: 0.5rem; /* Espaço entre o copyright e o crédito */
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.dev-credits a {
+    color: inherit; /* Usa a cor do texto do rodapé */
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dev-credits a:hover {
+    color: #ffffff; /* Fica branco brilhante ao passar o mouse */
+    text-decoration: underline;
+}
+/* =========================================
+   CORREÇÃO: TÍTULO DA CAPA NEOPRAG (BRANCO)
+   ========================================= */
+
+/* Forçamos a cor branca APENAS no título da capa */
+.hero--neoprag .hero__title {
+    color: #ffffff !important; /* O !important garante que o branco vença o verde escuro */
+    text-shadow: 0 4px 20px rgba(0,0,0,0.9); /* Sombra forte para destacar da foto */
+}
+
+/* Mantém a parte de baixo (Controle de Pragas) em verde claro neon */
+.hero--neoprag .hero__title span {
+    color: #B3FF5E !important;
+}
+/* =========================================
+   15. SEÇÃO DE PLANOS & PREÇOS (PREMIUM)
+   ========================================= */
+
+/* Títulos de Categoria (Residencial vs Empresarial) */
+.pricing-category-title {
+    font-family: var(--font-neoprag-display);
+    font-size: 1.8rem;
+    color: var(--color-neoprag-forest);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pricing-category-title i {
+    font-size: 2rem;
+    color: var(--color-neoprag-dark);
+}
+
+.pricing-category-title .subtitle {
+    font-family: var(--font-neoprag-body);
+    font-size: 0.9rem;
+    color: #666;
+    background: #eef5e5;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.combo-title {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--color-neoprag-gray);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Divisor de Seção */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 4rem 0;
+}
+
+.mt-large { margin-top: 4rem; }
+
+/* --- CARTÕES SIMPLES (Serviços Individuais) --- */
+.pricing-card.simple {
+    background: white;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.pricing-card.simple:hover {
+    border-color: var(--color-neoprag-dark);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.pricing-card.simple h4 {
+    font-size: 1.1rem;
+    color: var(--color-neoprag-forest);
+    margin-bottom: 0.5rem;
+}
+
+.pricing-card.simple .price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-neoprag-dark);
+    margin-bottom: 0.5rem;
+}
+
+.pricing-card.simple p {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+/* Botão Outline (Borda Apenas) */
+.btn--outline-neoprag {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border: 2px solid var(--color-neoprag-dark);
+    color: var(--color-neoprag-dark);
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.btn--outline-neoprag:hover {
+    background: var(--color-neoprag-dark);
+    color: white;
+}
+
+/* --- CARTÕES DESTAQUE (COMBOS) --- */
+.pricing-card.featured {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 2.5rem;
+    position: relative;
+    border: 2px solid transparent;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card.featured:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(114, 167, 36, 0.2);
+}
+
+/* Bordas coloridas para identificar os planos */
+.pricing-card.featured.bronze { border-top: 6px solid #cd7f32; }
+.pricing-card.featured.silver { border-top: 6px solid #a0a0a0; }
+.pricing-card.featured.gold   { border-top: 6px solid #d4af37; }
+.pricing-card.featured.full-power { border-top: 6px solid #000; background: #fafafa; }
+
+.card-header { text-align: center; margin-bottom: 1.5rem; }
+.card-header h3 {
+    font-size: 1.5rem;
+    color: var(--color-neoprag-forest);
+    margin-bottom: 0.5rem;
+}
+
+/* Badge (Tag de destaque) */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #f0f0f0;
+    color: #666;
+}
+
+.badge.popular { background: var(--color-neoprag-primary); color: #3C5518; }
+.badge.premium { background: #d4af37; color: white; }
+
+/* Preço Grande */
+.price-box {
+    text-align: center;
+    color: var(--color-neoprag-gray);
+    margin-bottom: 2rem;
+}
+
+.price-box .currency { font-size: 1.2rem; vertical-align: top; font-weight: 600; }
+.price-box .amount { font-size: 3.5rem; font-weight: 800; line-height: 1; color: var(--color-neoprag-dark); }
+.price-box .cents { font-size: 1.2rem; font-weight: 600; }
+
+/* Lista de Benefícios */
+.features-list {
+    margin-bottom: 2rem;
+    flex-grow: 1; /* Empurra o botão para baixo para alinhar todos */
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed #eee;
+}
+
+.features-list li:last-child { border-bottom: none; }
+
+.features-list i {
+    color: var(--color-neoprag-dark);
+    font-size: 1.1rem;
+}
+
+/* Botão Cheio */
+.full-width { width: 100%; text-align: center; display: block; }
