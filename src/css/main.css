@@ -2020,24 +2020,21 @@ ul { list-style: none; }
     box-shadow: 0 0 20px rgba(58, 95, 143, 0.6);
 }
 /* =========================================
-   SEÇÃO MAPA (AJUSTADO: FUNDO BRANCO E MAPA MAIOR)
+   SEÇÃO MAPA (CORRIGIDO FINAL)
    ========================================= */
 
 .section-map {
     padding: 6rem 0;
-    /* MUDANÇA 1: Fundo branco puro para sumir com a borda da imagem */
     background: #ffffff; 
     border-top: 1px solid #f0f0f0;
 }
 
-/* Novo container para os títulos */
 .map-header {
     margin-bottom: 3rem; 
 }
 
 .map-grid {
     display: grid;
-    /* MUDANÇA 2: Damos mais espaço horizontal para a coluna do mapa (1.5fr) */
     grid-template-columns: 1fr 1.5fr; 
     gap: 2rem;
     align-items: center; 
@@ -2048,38 +2045,79 @@ ul { list-style: none; }
     .map-visual { margin-top: 2rem; }
 }
 
-/* Lista de Cartões */
 .locations-list {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
 
-/* Estilo dos Cards (Mantido) */
 .loc-card {
-    display: flex; align-items: center; gap: 1.5rem;
-    background: #fff; /* Garante fundo branco no card também */
+    display: flex; 
+    align-items: center; 
+    gap: 1.5rem;
+    background: #fff; 
     padding: 1.5rem;
     border-radius: 12px; 
-    border: 1px solid #eee; /* Borda sutil para diferenciar do fundo branco */
+    border: 1px solid #eee; 
     transition: transform 0.3s, box-shadow 0.3s;
 }
-.loc-card:hover { transform: translateX(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-.loc-card.highlight { border-left: 4px solid var(--color-blue-accent); }
 
-/* Badges e Textos (Mantidos) */
-.state-badge {
-    width: 50px; height: 50px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; color: white; flex-shrink: 0;
+.loc-card:hover { 
+    transform: translateX(10px); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
 }
-.state-badge.ro { background: #3C5518; }
-.state-badge.pr { background: #26538F; }
-.unit-type { font-size: 0.75rem; text-transform: uppercase; color: #999; font-weight: 600; }
-.section-subtitle-sm { text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; color: #888; font-weight: 700; display: block; margin-bottom: 0.5rem; }
-.section-title-map { font-size: 2.2rem; color: var(--color-navy-primary); margin-bottom: 0.5rem; }
 
-/* Imagem do Mapa (AUMENTADA) */
+.loc-card.highlight { 
+    border-left: 4px solid var(--color-blue-accent); 
+}
+
+/* --- BADGES (BOLINHAS) --- */
+.state-badge {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-weight: 800; 
+    color: white !important; /* Texto Branco Obrigatório */
+    flex-shrink: 0;
+}
+
+/* CLASSE MATRIZ (VERDE) */
+.state-badge.matriz { 
+    background-color: #3C5518 !important; 
+}
+
+/* CLASSE FILIAL (AZUL) */
+.state-badge.filial { 
+    background-color: #26538F !important; 
+}
+/* ------------------------- */
+
+.unit-type { 
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    color: #999; 
+    font-weight: 600; 
+}
+
+.section-subtitle-sm { 
+    text-transform: uppercase; 
+    font-size: 0.85rem; 
+    letter-spacing: 1px; 
+    color: #888; 
+    font-weight: 700; 
+    display: block; 
+    margin-bottom: 0.5rem; 
+}
+
+.section-title-map { 
+    font-size: 2.2rem; 
+    color: var(--color-navy-primary); 
+    margin-bottom: 0.5rem; 
+}
+
 .map-visual {
     text-align: center;
     display: flex;
@@ -2088,12 +2126,10 @@ ul { list-style: none; }
 }
 
 .map-img {
-    width: 100%;       /* Ocupa toda a largura da coluna */
+    width: 100%;       
     height: auto;
-    max-height: 650px; /* MUDANÇA 3: Aumentei bastante o limite de altura (era 450px) */
+    max-height: 650px; 
     object-fit: contain;
-    
-    /* MUDANÇA 4: Truque para garantir que o branco da imagem suma mesmo se o fundo não for 100% igual */
     mix-blend-mode: multiply; 
 }
 /* =========================================
@@ -2140,4 +2176,121 @@ ul { list-style: none; }
     visibility: visible;
     opacity: 1;
     bottom: 50px; /* Sobe um pouquinho ao aparecer */
+}
+/* =========================================
+   LINKS LEGAIS NO RODAPÉ (AJUSTE)
+   ========================================= */
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espaço entre as linhas do final */
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1); /* Linha divisória sutil */
+    margin-top: 2rem;
+}
+
+/* Container dos links (Política e Termos) */
+.footer-legal-row {
+    display: flex;
+    gap: 20px;
+    font-size: 0.85rem;
+}
+
+.footer-legal-row a {
+    color: rgba(255, 255, 255, 0.6); /* Cor discreta */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-legal-row a:hover {
+    color: white; /* Fica branco ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* Separador "|" entre os links (opcional, fica elegante) */
+.footer-legal-row span.separator {
+    color: rgba(255, 255, 255, 0.3);
+}
+/* =========================================
+   BANNER DE COOKIES (LGPD)
+   ========================================= */
+
+.cookie-banner {
+    position: fixed;
+    bottom: -100%; /* Começa escondido lá embaixo */
+    left: 20px;
+    right: 20px;
+    z-index: 99999; /* Acima de tudo */
+    display: flex;
+    justify-content: center;
+    transition: bottom 0.5s ease-in-out; /* Animação suave ao subir */
+}
+
+/* Quando o JS ativar, ele sobe */
+.cookie-banner.show {
+    bottom: 20px;
+}
+
+.cookie-content {
+    background: white;
+    padding: 1.2rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.05);
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 900px;
+    width: 100%;
+}
+
+.cookie-content p {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.cookie-content a {
+    color: var(--color-blue-accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.cookie-content a:hover {
+    text-decoration: underline;
+}
+
+.btn-accept-cookies {
+    background-color: var(--color-neoprag-forest); /* Verde da marca */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap; /* Não quebra o texto do botão */
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-accept-cookies:hover {
+    background-color: #2e4412; /* Verde mais escuro */
+    transform: scale(1.05);
+}
+
+/* Ajuste para Celular */
+@media (max-width: 768px) {
+    .cookie-banner.show { bottom: 0; left: 0; right: 0; }
+    .cookie-content {
+        flex-direction: column;
+        border-radius: 20px 20px 0 0; /* Arredonda só em cima */
+        gap: 1rem;
+        text-align: center;
+    }
+    .btn-accept-cookies { width: 100%; }
 }

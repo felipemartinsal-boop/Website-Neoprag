@@ -174,3 +174,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Branct System: Core loaded successfully.');
 });
+/* =========================================
+   LÓGICA DO BANNER DE COOKIES
+   ========================================= */
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cookieBanner = document.getElementById("cookieBanner");
+    const btnAccept = document.getElementById("btnAcceptCookies");
+
+    // Verifica se já existe o consentimento no navegador
+    if (!localStorage.getItem("cookiesAceitos")) {
+        // Se NÃO tiver, espera 1 segundo e mostra o banner
+        setTimeout(() => {
+            cookieBanner.classList.add("show");
+        }, 1000);
+    }
+
+    // Ao clicar no botão "Aceitar"
+    if(btnAccept){
+        btnAccept.addEventListener("click", () => {
+            // Salva a informação no navegador do usuário
+            localStorage.setItem("cookiesAceitos", "true");
+            
+            // Remove o banner visualmente
+            cookieBanner.classList.remove("show");
+        });
+    }
+});
