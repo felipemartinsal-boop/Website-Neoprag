@@ -2096,3 +2096,48 @@ ul { list-style: none; }
     /* MUDANÇA 4: Truque para garantir que o branco da imagem suma mesmo se o fundo não for 100% igual */
     mix-blend-mode: multiply; 
 }
+/* =========================================
+   NOTIFICAÇÃO DE SUCESSO (TOAST)
+   ========================================= */
+
+.toast {
+    /* Estado Inicial: Escondido */
+    visibility: hidden;
+    opacity: 0;
+    
+    /* Posição: Flutuante no centro inferior da tela */
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    z-index: 10000; /* Fica acima de tudo */
+    
+    /* Estilo Visual */
+    background-color: #4caf50; /* Verde Sucesso */
+    color: white;
+    min-width: 300px;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    font-weight: 600;
+    font-size: 0.95rem;
+    
+    /* Animação Suave */
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.toast i {
+    font-size: 1.2rem;
+}
+
+/* Classe que o JavaScript adicionará para mostrar a mensagem */
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px; /* Sobe um pouquinho ao aparecer */
+}

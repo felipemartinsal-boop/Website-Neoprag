@@ -3,57 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FS Consultoria Empresarial - Soluções completas em controle de pragas. Neoprag, Neoagro, Pulsar-X.">
-    
-    <meta property="og:title" content="FS Consultoria Empresarial">
-    <meta property="og:description" content="Soluções integradas em controle de pragas: residencial, empresarial e agro.">
+    <meta name="description" content="Neoprag - Controle de pragas eficiente para residências e empresas.">
+    <meta property="og:title" content="Neoprag - A nova geração do controle de pragas">
     <meta property="og:type" content="website">
-
-    <title>FS Consultoria Empresarial | Soluções Integradas</title>
+    
+    <title>Neoprag | A Nova Geração do Controle de Pragas</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&family=Ruda:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="./src/css/main.css">
 </head>
-<body>
+<body class="page-neoprag">
 
-    <header class="header" id="main-header">
+    <header class="header header--white" id="main-header">
         <div class="container header__container">
             <div class="header__brand">
                 <a href="index.html" class="brand-link">
-                    <img src="./src/img/logo-fs.png" alt="FS Consultoria Empresarial" class="header__logo-img">
+                    <img src="./src/img/logo-neoprag.png" alt="Neoprag" class="header__logo-img">
                 </a>
-                
-                </div>
+            </div>
             
             <nav class="nav-desktop">
                 <ul class="nav-desktop__list">
-                    <li><a href="#home" class="nav-link">Início</a></li>
-                    <li><a href="neoprag.html" class="nav-link">Neoprag</a></li>
+                    <li><a href="index.html" class="nav-link active">Neoprag</a></li>
                     <li><a href="neoagro.html" class="nav-link">Neoagro</a></li>
                     <li><a href="pulsar-x.html" class="nav-link">Pulsar-X</a></li>
+                    <li><a href="fs-consultoria.html" class="nav-link">Grupo FS</a></li>
                 </ul>
 
-                <a href="SEU_LINK_DO_CHATBOT_AQUI" class="btn--ia">
-                    Falar com Especialista
+                <a href="#contato" class="btn btn--neoprag-primary" style="margin-left: 30px;">
+                    Solicitar Orçamento
+                </a>
+
+                <a href="SEU_LINK_DO_CRM_AQUI" target="_blank" class="btn-client-area" style="color: var(--color-neoprag-forest);">
+                    <i class="fas fa-user-circle"></i>
+                    Área do Cliente
                 </a>
             </nav>
 
             <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
     <div class="mobile-menu" id="mobile-menu">
         <nav class="mobile-menu__nav">
-            <a href="#home" class="mobile-nav-link">Início</a>
+            <a href="index.html" class="mobile-nav-link">Início</a>
             <a href="neoprag.html" class="mobile-nav-link">Neoprag</a>
             <a href="neoagro.html" class="mobile-nav-link">Neoagro</a>
             <a href="pulsar-x.html" class="mobile-nav-link">Pulsar-X</a>
@@ -62,261 +62,397 @@
     </div>
 
     <main>
-        <section id="home" class="hero">
-            <div class="hero__overlay"></div>
-            <div class="container hero__container">
-                <div class="hero__content animate-fade-up">
-                    <h1 class="hero__title">
-                        Soluções Integradas em <br>Controle de Pragas
+       <section class="hero--neoprag">
+            <div class="container hero__container-center">
+                <div class="animate-fade-up max-w-4xl mx-auto text-center relative z-10">
+                    <span class="hero__badge mb-4">Controle Urbano Profissional</span>
+                    
+                    <h1 class="hero__title mb-6">
+                        A nova geração do <br>
+                        <span style="color: var(--color-neoprag-primary);">controle de pragas</span>
                     </h1>
-                    <p class="hero__subtitle">
-                        Consultoria Empresarial e Serviços Técnicos
+                    
+                    <p class="hero__description mx-auto mb-10">
+                        Soluções técnicas e estratégicas para residências, condomínios e indústrias. 
+                        Método certificado que elimina pragas preservando a segurança do seu ambiente.
                     </p>
-                    <p class="hero__description">
-                        Estratégia, tecnologia e soluções inteligentes reunidas em quatro empresas para proteção completa de ambientes urbanos e rurais.
-                    </p>
-                    <div class="hero__actions">
-                        <a href="#contato" class="btn btn--primary">Falar com Especialista</a>
-                        <a href="#empresas" class="btn btn--secondary">Conhecer Empresas</a>
+                    
+                    <div class="hero__actions justify-center gap-4">
+                        <a href="#contato" class="btn btn--neoprag-primary text-lg px-8 py-4">
+                            Solicitar Orçamento
+                        </a>
+                        <a href="#servicos" class="btn btn--neoprag-secondary text-lg px-8 py-4" style="border-color: white; color: white;">
+                            Nossos Serviços
+                        </a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="section bg-light" style="padding-top: 8rem;">
+            <div class="container">
+                <h2 class="section-title">Serviços Especializados</h2>
+                <div class="grid grid--3-cols">
+                    <div class="service-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Residencial</h3>
+                        <p>Proteção completa para sua casa e família. Controle de baratas, formigas, ratos e cupins.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-building"></i>
+                        <h3>Condomínios</h3>
+                        <p>Gestão preventiva e corretiva de pragas em áreas comuns, garagens e jardins.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Empresas</h3>
+                        <p>Soluções discretas e eficientes para manter seu ambiente corporativo livre de pragas.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-industry"></i>
+                        <h3>Indústrias</h3>
+                        <p>Controle técnico para ambientes produtivos, com foco em segurança alimentar e compliance.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Restaurantes</h3>
+                        <p>Programa de controle integrado (MIP) para garantir certificações e tranquilidade.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-hospital"></i>
+                        <h3>Saúde</h3>
+                        <p>Hospitais e clínicas. Protocolos rigorosos e produtos certificados para áreas sensíveis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planos" class="section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Planos e Investimento</h2>
+                    <p class="section-description">Escolha a proteção ideal para o seu patrimônio com transparência total.</p>
+                </div>
+
+                <div class="pricing-category-title">
+                    <i class="fas fa-home"></i> Soluções Residenciais
+                    <span class="subtitle">Até 250m²</span>
+                </div>
+
+                <div class="grid grid--3-cols mb-large">
+                    <div class="pricing-card simple">
+                        <h4>Desinsetização</h4>
+                        <div class="price">R$ 250,00</div>
+                        <p>Controle pontual de insetos rasteiros e voadores.</p>
+                        <a href="https://wa.me/5569993614353?text=Olá, tenho interesse na Desinsetização Residencial avulsa." class="btn btn--outline-neoprag" data-plan="Desinsetizacao Residencial">Contratar</a>
+                    </div>
+                    <div class="pricing-card simple">
+                        <h4>Desratização</h4>
+                        <div class="price">R$ 250,00</div>
+                        <p>Controle de roedores com iscas de segurança.</p>
+                        <a href="https://wa.me/5569993614353?text=Olá, tenho interesse na Desratização Residencial avulsa." class="btn btn--outline-neoprag" data-plan="Desratizacao Residencial">Contratar</a>
+                    </div>
+                    <div class="pricing-card simple">
+                        <h4>Descupinização</h4>
+                        <div class="price">R$ 250,00</div>
+                        <p>Tratamento simples localizado para cupins.</p>
+                        <a href="https://wa.me/5569993614353?text=Olá, tenho interesse na Descupinização Simples Residencial." class="btn btn--outline-neoprag" data-plan="Descupinizacao Residencial">Contratar</a>
+                    </div>
+                </div>
+
+                <h3 class="combo-title">Combos de Proteção Total</h3>
+                <div class="grid grid--3-cols pricing-highlight-grid">
+                    
+                    <div class="pricing-card featured bronze">
+                        <div class="card-header">
+                            <h3>Plano Bronze</h3>
+                            <span class="badge">Infestação Média</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="currency">R$</span>
+                            <span class="amount">400</span>
+                            <span class="cents">,00</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Desinsetização Completa</li>
+                            <li><i class="fas fa-check"></i> Desratização Segura</li>
+                            <li><i class="fas fa-clock"></i> 1 Aplicação</li>
+                        </ul>
+                        <a href="https://wa.me/5569993614353?text=Olá, gostaria de contratar o Plano Bronze Residencial." class="btn btn--neoprag-primary full-width" data-plan="Combo Bronze Residencial">Contratar Bronze</a>
+                    </div>
+
+                    <div class="pricing-card featured silver">
+                        <div class="card-header">
+                            <h3>Plano Prata</h3>
+                            <span class="badge popular">Mais Vendido</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="currency">R$</span>
+                            <span class="amount">500</span>
+                            <span class="cents">,00</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Desinsetização</li>
+                            <li><i class="fas fa-check"></i> Desratização</li>
+                            <li><i class="fas fa-check"></i> <strong>Descupinização</strong></li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Para Infestação Alta</li>
+                            <li><i class="fas fa-layer-group"></i> 2 Aplicações</li>
+                        </ul>
+                        <a href="https://wa.me/5569993614353?text=Olá, gostaria de contratar o Plano Prata Residencial." class="btn btn--neoprag-primary full-width" data-plan="Combo Prata Residencial">Contratar Prata</a>
+                    </div>
+
+                    <div class="pricing-card featured gold">
+                        <div class="card-header">
+                            <h3>Plano Ouro</h3>
+                            <span class="badge premium">Alta Performance</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="currency">R$</span>
+                            <span class="amount">600</span>
+                            <span class="cents">,00</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Desinsetização</li>
+                            <li><i class="fas fa-check"></i> Desratização</li>
+                            <li><i class="fas fa-check"></i> Descupinização</li>
+                            <li><i class="fas fa-bug"></i> <strong>Específico p/ Barata Germânica</strong></li>
+                            <li><i class="fas fa-shield-alt"></i> 3 Aplicações (Garantia Total)</li>
+                        </ul>
+                        <a href="https://wa.me/5569993614353?text=Olá, gostaria de contratar o Plano Ouro Residencial." class="btn btn--neoprag-primary full-width" data-plan="Combo Ouro Residencial">Contratar Ouro</a>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="pricing-category-title mt-large">
+                    <i class="fas fa-building"></i> Soluções Empresariais
+                    <span class="subtitle">Até 400m² • Inclui Documentação Técnica</span>
+                </div>
+
+                 <div class="grid grid--3-cols mb-large">
+                    <div class="pricing-card simple business">
+                        <h4>Desinsetização</h4>
+                        <div class="price">R$ 350,00</div>
+                        <a href="https://wa.me/5569993614353?text=Olá, interesse em Desinsetização Empresarial." class="btn btn--outline-neoprag" data-plan="Desinsetizacao Empresarial">Contratar</a>
+                    </div>
+                    <div class="pricing-card simple business">
+                        <h4>Desratização</h4>
+                        <div class="price">R$ 450,00</div>
+                        <a href="https://wa.me/5569993614353?text=Olá, interesse em Desratização Empresarial." class="btn btn--outline-neoprag" data-plan="Desratizacao Empresarial">Contratar</a>
+                    </div>
+                    <div class="pricing-card simple business">
+                        <h4>Descupinização</h4>
+                        <div class="price">R$ 450,00</div>
+                        <a href="https://wa.me/5569993614353?text=Olá, interesse em Descupinização Empresarial." class="btn btn--outline-neoprag" data-plan="Descupinizacao Empresarial">Contratar</a>
+                    </div>
+                </div>
+
+                <div class="grid grid--3-cols pricing-highlight-grid">
+                    
+                    <div class="pricing-card featured">
+                        <div class="card-header">
+                            <h3>Plano Light</h3>
+                            <span class="badge">Essencial</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="currency">R$</span>
+                            <span class="amount">450</span>
+                            <span class="cents">,00</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Desinsetização</li>
+                            <li><i class="fas fa-check"></i> Desratização</li>
+                            <li><i class="fas fa-file-alt"></i> Documentação Básica</li>
+                        </ul>
+                        <a href="https://wa.me/5569993614353?text=Olá, gostaria de contratar o Plano Light Empresarial." class="btn btn--neoprag-primary full-width" data-plan="Combo Light Empresarial">Contratar Light</a>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="card-header">
+                            <h3>Plano Gold</h3>
+                            <span class="badge popular">Recomendado</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="currency">R$</span>
+                            <span class="amount">500</span>
+                            <span class="cents">,00</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Desinsetização</li>
+                            <li><i class="fas fa-check"></i> Desratização</li>
+                            <li><i class="fas fa-check"></i> <strong>Descupinização</strong></li>
+                            <li><i class="fas fa-file-contract"></i> Laudos Técnicos</li>
+                        </ul>
+                        <a href="https://wa.me/5569993614353?text=Olá, gostaria de contratar o Plano Gold Empresarial." class="btn btn--neoprag-primary full-width" data-plan="Combo Gold Empresarial">Contratar Gold</a>
+                    </div>
+
+                    <div class="pricing-card featured full-power">
+                        <div class="card-header">
+                            <h3>Full Power</h3>
+                            <span class="badge premium">Proteção Máxima</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="currency">R$</span>
+                            <span class="amount">700</span>
+                            <span class="cents">,00</span>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-double"></i> <strong>TODOS OS SERVIÇOS</strong></li>
+                            <li><i class="fas fa-layer-group"></i> <strong>2 Aplicações Completas</strong></li>
+                            <li><i class="fas fa-file-signature"></i> Documentação ANVISA Completa</li>
+                            <li><i class="fas fa-star"></i> Prioridade no Atendimento</li>
+                        </ul>
+                        <a href="https://wa.me/5569993614353?text=Olá, gostaria de contratar o Plano Full Power Empresarial." class="btn btn--neoprag-primary full-width" data-plan="Combo Full Power">Contratar Full Power</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="processo" class="section">
+            <div class="container">
+                <h2 class="section-title">Nosso Processo Técnico</h2>
+                <div class="grid grid--4-cols">
+                    <div class="process-step">
+                        <div class="process-number">1</div>
+                        <h3>Diagnóstico</h3>
+                        <p>Inspeção técnica para identificar focos e causas.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">2</div>
+                        <h3>Mapeamento</h3>
+                        <p>Análise de riscos e estratégia personalizada.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">3</div>
+                        <h3>Intervenção</h3>
+                        <p>Aplicação de métodos técnicos com segurança.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">4</div>
+                        <h3>Prevenção</h3>
+                        <p>Monitoramento contínuo para evitar reincidências.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light">
+            <div class="container">
+                <div class="grid grid--2-cols">
+                    <div>
+                        <h2 class="section-title" style="text-align: left; margin-left: 0;">Por que escolher a Neoprag</h2>
+                        <p class="mb-large">Nosso compromisso é com a eficiência e a segurança do seu patrimônio.</p>
+                        
+                        <div class="differential-item">
+                            <i class="fas fa-crosshairs"></i>
+                            <div>
+                                <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Precisão no Controle</h3>
+                                <p>Identificação correta e método específico. Sem aplicações genéricas.</p>
+                            </div>
+                        </div>
+                        <div class="differential-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h3>Segurança Total</h3>
+                                <p>Produtos aprovados pela ANVISA e técnicos rigorosamente treinados.</p>
+                            </div>
+                        </div>
+                        <div class="differential-item">
+                        <i class="fa-solid fa-file-contract"></i>
+                        
+                        <div>
+                            <h4>Documentação</h4>
+                            <p>Certificados, laudos e suporte completo para auditorias.</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div>
+                        <h2 class="section-title" style="text-align: left;">O que dizem os clientes</h2>
+                        <div class="testimonial-card mb-large">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="mb-large">"Serviço impecável! Resolveram nosso problema com formigas de forma definitiva."</p>
+                            <strong>Mariana Costa</strong><br><small>Residencial</small>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="mb-large">"Contratamos para o condomínio e foi a melhor decisão. Atendimento ágil."</p>
+                            <strong>Roberto Almeida</strong><br><small>Síndico</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Solicite seu Orçamento</h2>
+                    <p class="section-description">Preencha o formulário abaixo e nossa equipe entrará em contato.</p>
                 </div>
                 
-                <div class="hero__stats">
-                    <div class="stat-card">
-                        <span class="stat-card__number">4</span>
-                        <span class="stat-card__label">Empresas Especializadas</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-card__number">100%</span>
-                        <span class="stat-card__label">Soluções Personalizadas</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-card__number">24/7</span>
-                        <span class="stat-card__label">Suporte Disponível</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-card__number">360°</span>
-                        <span class="stat-card__label">Proteção Total</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="empresas" class="section bg-light">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Nossas Empresas</h2>
-                    <p class="section-description">
-                        Três marcas especializadas, uma única missão: oferecer controle de pragas eficiente, seguro e tecnicamente avançado.
-                    </p>
-                </div>
-
-                <div class="grid grid--3-cols">
-                    <article class="card company-card theme-neoprag">
-                        <div class="company-card__icon logo-container">
-                             <img src="./src/img/logo-neoprag.png" alt="Neoprag" class="card-logo-img">
-                         </div>
-
-                        <span class="company-card__category">Controle Urbano</span>
-                        <p class="company-card__text">
-                            Atendimento residencial, condomínios e indústrias com método profissional e segurança garantida.
-                        </p>
-                        <ul class="check-list">
-                            <li>Residencial e Condomínios</li>
-                            <li>Comercial e Industrial</li>
-                        </ul>
-                        <a href="neoprag.html" class="btn btn--full btn--neoprag">Conhecer Neoprag</a>
-                    </article>
-
-                    <article class="card company-card theme-neoagro">
-                        <div class="company-card__icon logo-container">
-                              <img src="./src/img/logo-neoagro.png" alt="Neoagro" class="card-logo-img">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <form class="form-neoprag" id="contactForm">
+                        <div class="grid grid--2-cols">
+                            <div>
+                                <label class="form-label">Nome completo *</label>
+                                <input type="text" name="nome" required placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <label class="form-label">Empresa (opcional)</label>
+                                <input type="text" name="empresa" placeholder="Nome da empresa">
+                            </div>
                         </div>
-                        
-                        <span class="company-card__category">Controle no Agro</span>
-                        <p class="company-card__text">
-                            Soluções estratégicas para lavouras, silos e armazéns. Controle equilibrado para o campo.
-                        </p>
-                        <ul class="check-list">
-                            <li>Silos e Armazéns</li>
-                            <li>Áreas Rurais Produtivas</li>
-                        </ul>
-                        <a href="neoagro.html" class="btn btn--full btn--neoagro">Conhecer Neoagro</a>
-                    </article>
-
-                    <article class="card company-card theme-pulsar">
-                        <div class="company-card__icon logo-container">
-                                  <img src="./src/img/logo-pulsar.png" alt="Pulsar-X" class="card-logo-img">
-                          </div>
-                    
-                        <span class="company-card__category">Alta Tecnologia</span>
-                        <p class="company-card__text">
-                            Equipamentos de biotecnologia com precisão cirúrgica que eliminam bactérias, fungos e ácaros.
-                        </p>
-                        <ul class="check-list">
-                            <li>Sem evacuação de área</li>
-                            <li>Precisão Cirúrgica</li>
-                        </ul>
-                        <a href="pulsar-x.html" class="btn btn--full btn--pulsar">Conhecer Pulsar-X</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="porque" class="section">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Por que Escolher a FS</h2>
-                    <p class="section-description">
-                        Conveniência de achar as melhores soluções e tecnologia em um só lugar.
-                    </p>
-                </div>
-
-                <div class="grid grid--4-cols mb-large">
-                    <div class="feature-box">
-                        <div class="feature-box__icon"><i class="fas fa-award"></i></div>
-                        <h3>Credibilidade</h3>
-                        <p>Histórico comprovado de excelência.</p>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-box__icon"><i class="fas fa-clipboard-check"></i></div>
-                        <h3>Método Técnico</h3>
-                        <p>Diagnóstico preciso e estratégico.</p>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-box__icon"><i class="fas fa-tachometer-alt"></i></div>
-                        <h3>Eficiência</h3>
-                        <p>Resultados rápidos e duradouros.</p>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-box__icon"><i class="fas fa-puzzle-piece"></i></div>
-                        <h3>Ecossistema</h3>
-                        <p>Tudo em um único lugar.</p>
-                    </div>
+                        <div class="grid grid--2-cols">
+                            <div>
+                                <label class="form-label">WhatsApp *</label>
+                                <input type="tel" name="whatsapp" required placeholder="(00) 00000-0000">
+                            </div>
+                            <div>
+                                <label class="form-label">E-mail *</label>
+                                <input type="email" name="email" required placeholder="seu@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label">Tipo de serviço *</label>
+                            <select name="servico" required>
+                                <option value="">Selecione...</option>
+                                <option value="residencial">Residencial</option>
+                                <option value="condominios">Condomínios</option>
+                                <option value="empresas">Empresas</option>
+                                <option value="industrias">Indústrias</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Mensagem *</label>
+                            <textarea name="mensagem" rows="5" required placeholder="Descreva sua necessidade..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--neoprag-primary" style="width: 100%; font-size: 1.1rem; cursor: pointer;">
+                            <i class="fas fa-paper-plane mr-2"></i> Enviar Solicitação
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <section id="consultoria" class="premium-consulting">
-        <div class="consulting-bg-pattern"></div>
-        
-        <div class="container relative z-10">
-            <div class="consulting-grid">
-                
-                <div class="consulting-content animate-fade-up">
-                    <span class="consulting-badge">Soluções Corporativas</span>
-                    <h2 class="consulting-title">
-                        Eleve o padrão de <br>
-                        <span class="text-gold">Segurança Sanitária</span> da sua empresa.
-                    </h2>
-                    <p class="consulting-desc">
-                        Não vendemos apenas controle de pragas. A FS Consultoria entrega inteligência, conformidade legal e proteção de marca. 
-                        Preparamos seu negócio para as auditorias mais rigorosas do mercado.
-                    </p>
-                    
-                    <a href="https://wa.me/5569993614353" target="_blank" class="btn btn--gold">
-                        Agendar Diagnóstico Executivo
-                    </a>
-                </div>
-
-                <div class="consulting-visual animate-fade-up">
-                    <div class="glass-card">
-                        <h3>O que entregamos:</h3>
-                        <ul class="premium-list">
-                            <li>
-                                <div class="icon-gold"><i class="fas fa-file-contract"></i></div>
-                                <div>
-                                    <strong>Auditorias & Laudos</strong>
-                                    <p>Documentação técnica completa para ANVISA e ISO.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon-gold"><i class="fas fa-shield-alt"></i></div>
-                                <div>
-                                    <strong>Gestão de Riscos</strong>
-                                    <p>Mapeamento preventivo de ameaças ao ambiente.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon-gold"><i class="fas fa-chalkboard-teacher"></i></div>
-                                <div>
-                                    <strong>Treinamento de Equipes</strong>
-                                    <p>Capacitação do seu time sobre boas práticas.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-<section class="section-map">
-        <div class="container">
-            
-            <div class="map-header">
-                <span class="section-subtitle-sm">Abrangência Nacional</span>
-                <h2 class="section-title-map">Onde Estamos</h2>
-                <p class="mb-large" style="max-width: 600px; color: #666;">
-                    Estrutura completa para atender com agilidade no Norte e no Sul do país.
-                </p>
-            </div>
-
-            <div class="map-grid">
-                
-                <div class="locations-list">
-                    <div class="loc-card highlight">
-                        <div class="state-badge ro">RO</div>
-                        <div>
-                            <span class="unit-type">Matriz</span>
-                            <h3>Vilhena</h3>
-                            <p>Rua Walter Dourado, 5386, Centro</p>
-                        </div>
-                    </div>
-
-                    <div class="loc-card">
-                        <div class="state-badge ro">RO</div>
-                        <div>
-                            <span class="unit-type">Filial</span>
-                            <h3>Porto Velho</h3>
-                            <p>Base Operacional & Logística</p>
-                        </div>
-                    </div>
-
-                    <div class="loc-card">
-                        <div class="state-badge pr">PR</div>
-                        <div>
-                            <span class="unit-type">Filial</span>
-                            <h3>Candói</h3>
-                            <p>Base Operacional Sul</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="map-visual">
-                    <img src="./src/img/mapa-atuacao.png" alt="Mapa de Atuação FS" class="map-img">
-                </div>
-
-            </div>
-        </div>
-    </section>
-   <footer class="main-footer footer--fs">
+    <footer class="main-footer footer--neoprag">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="./src/img/logo-fs.png" alt="FS Consultoria" class="footer-logo-img">
-                    <span class="footer-slogan">"Excelência e inovação em controle de pragas e consultoria."</span>
-                    <p style="font-size: 0.85rem; opacity: 0.6;">CNPJ: 64.024.526/0001-94</p>
+                    <img src="./src/img/logo-neoprag.png" alt="Neoprag" class="footer-logo-img">
+                    <span class="footer-slogan">"Segurança e conforto para o seu ambiente."</span>
+                    <p style="font-size: 0.85rem; opacity: 0.6;">Uma empresa do Grupo FS<br>CNPJ: 64.024.526/0001-94</p>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Links Rápidos</h4>
+                    <h4>Empresas do Grupo</h4>
                     <ul class="footer-links">
-                        <li><a href="neoprag.html">Neoprag (Urbano)</a></li>
+                        <li><a href="fs-consultoria.html">Grupo FS (Holding)</a></li>
+                        <li><a href="index.html">Neoprag (Urbano)</a></li>
                         <li><a href="neoagro.html">Neoagro (Rural)</a></li>
                         <li><a href="pulsar-x.html">Pulsar-X (Tech)</a></li>
-                        <li><a href="#">Blog Informativo</a></li>
+                        <li><a href="#">Blog</a></li>
                         <li><a href="#">Área do Cliente</a></li>
                     </ul>
                 </div>
@@ -326,12 +462,11 @@
                     <ul class="footer-contact">
                         <li><i class="fas fa-map-marker-alt"></i><span>Rua Walter Dourado, 5386,<br>Centro, Vilhena-RO</span></li>
                         <li><i class="fas fa-phone-alt"></i><span>(69) 99361-4353</span></li>
-                        <li><i class="fas fa-envelope"></i><span>contato@fsconsultoria.com.br</span></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Conecte-se</h4>
+                    <h4>Redes Sociais</h4>
                     <div class="footer-social">
                         <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
@@ -339,15 +474,19 @@
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 FS Consultoria Empresarial. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Neoprag - Controle de Pragas Urbanas.</p>
                 <p class="dev-credits">
                     Desenvolvido por <a href="https://branct.com" target="_blank">Branct Studio</a>
                 </p>
             </div>
         </div>
     </footer>
+
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Solicitação enviada com sucesso!</span>
+    </div>
 
     <script src="./src/js/main.js" defer></script>
 </body>
