@@ -172,6 +172,160 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==================================================
+    // 4. CHATBOT INTEGRADO COM N8N
+    // ==================================================
+
+    /**
+     * Chatbot Widget
+     */
+    const chatWidget = document.createElement('div');
+    chatWidget.id = 'chatWidget';
+    chatWidget.innerHTML = `
+        <div id="chatButton" class="chat-button">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div id="chatWindow" class="chat-window">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <i class="fas fa-robot"></i>
+                    <span>Assistente Virtual</span>
+                </div>
+                <button id="closeChatBtn" class="close-chat-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="chatMessages" class="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        Olá! 👋 Sou o assistente virtual do Grupo FS. Como posso ajudá-lo hoje?
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Digite sua mensagem..." autocomplete="off">
+                <button id="sendMessageBtn" class="send-message-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(chatWidget);
+
+    // Elementos do Chat
+    const chatButton = document.getElementById('chatButton');
+    const chatWindow = document.getElementById('chatWindow');
+    const closeChatBtn = document.getElementById('closeChatBtn');
+    const chatInput = document.getElementById('chatInput');
+    const sendMessageBtn = document.getElementById('sendMessageBtn');
+    const chatMessages = document.getElementById('chatMessages');
+    const openChatBtn = document.getElementById('openChatBtn');
+
+    // Toggle Chat Window
+    function toggleChat() {
+        chatWindow.classList.toggle('active');
+        if (chatWindow.classList.contains('active')) {
+            chatInput.focus();
+        }
+    }
+
+    chatButton.addEventListener('click', toggleChat);
+    closeChatBtn.addEventListener('click', toggleChat);
+
+    // Se existe o botão "Falar com Especialista" na página
+    if (openChatBtn) {
+        openChatBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            chatWindow.classList.add('active');
+            chatInput.focus();
+        });
+    }
+
+    // Função para adicionar mensagem ao chat
+    function addMessage(message, isBot = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isBot ? 'bot-message' : 'user-message'}`;
+
+        messageDiv.innerHTML = `
+            ${isBot ? '<div class="message-avatar"><i class="fas fa-robot"></i></div>' : ''}
+            <div class="message-content">${message}</div>
+        `;
+
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Função para enviar mensagem para n8n
+    async function sendToN8N(message) {
+        try {
+            // Mostrar indicador de digitação
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot-message typing-indicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                <div class="message-content">
+                    <div class="typing-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            const response = await fetch('https://n8n.automaai.org/webhook/neoprag-site', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: message,
+                    timestamp: new Date().toISOString()
+                })
+            });
+
+            // Remover indicador de digitação
+            typingDiv.remove();
+
+            if (response.ok) {
+                const data = await response.json();
+                // A resposta do n8n pode vir em diferentes formatos, adaptando:
+                const botResponse = data.response || data.message || data.output || 'Desculpe, não consegui processar sua mensagem.';
+                addMessage(botResponse, true);
+            } else {
+                throw new Error('Erro na resposta');
+            }
+        } catch (error) {
+            console.error('Erro ao enviar mensagem:', error);
+            // Remover indicador se ainda existir
+            const typing = document.querySelector('.typing-indicator');
+            if (typing) typing.remove();
+
+            addMessage('Desculpe, ocorreu um erro. Por favor, tente novamente.', true);
+        }
+    }
+
+    // Enviar mensagem
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (message === '') return;
+
+        addMessage(message, false);
+        chatInput.value = '';
+
+        // Enviar para n8n
+        sendToN8N(message);
+    }
+
+    sendMessageBtn.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
     console.log('Branct System: Core loaded successfully.');
 });
 /* =========================================

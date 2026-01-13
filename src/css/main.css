@@ -247,76 +247,121 @@ ul { list-style: none; }
 }
 
 /* =========================================
-   4. HERO SECTION
+   4. HERO SECTION (CORRIGIDO PARA CENTRALIZADO)
    ========================================= */
+
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 100vh; /* Altura total da tela */
     padding-top: var(--header-height);
-    display: flex; align-items: center;
-    background: linear-gradient(135deg, var(--color-navy-primary), var(--color-navy-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza tudo verticalmente */
     overflow: hidden;
+    text-align: center; /* Garante que o texto fique no meio */
+    
+    /* Mantenha sua imagem de fundo no HTML ou adicione aqui se preferir */
+    /* background-image: url('../img/sua-foto-hero.jpg'); */
+    background-size: cover;
+    background-position: center;
 }
 
-/* Background Pattern (SVG Grid) */
+/* Camada escura para o texto brilhar em cima da foto */
 .hero__overlay {
-    position: absolute; inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.3;
+    position: absolute; 
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* Escurece a foto em 50% */
+    z-index: 1;
 }
 
 .hero__container {
-    display: grid; gap: 4rem; position: relative; z-index: 2;
+    position: relative;
+    z-index: 2; /* Fica acima da sombra */
+    max-width: 900px; /* Limita a largura para o texto não espalhar demais */
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens (título, texto, botões) */
+    gap: 2rem;
 }
 
-@media (min-width: 992px) {
-    .hero__container { grid-template-columns: 1.2fr 0.8fr; align-items: center; }
-}
-
+/* Tipografia */
 .hero__title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Letra Grande Responsiva */
     color: var(--color-white);
-    line-height: 1.1; margin-bottom: 1.5rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
 }
-.hero__subtitle {
-    font-size: 1.25rem; color: var(--color-blue-light); margin-bottom: 1rem;
-}
+
 .hero__description {
-    color: #ced4da; font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 600px;
+    color: #f0f0f0;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    max-width: 700px;
+    line-height: 1.6;
 }
 
-/* Buttons */
-.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+/* --- BOTÕES ALINHADOS --- */
+/* (Use a classe .hero-btns-container no HTML ou .hero__actions) */
+.hero-btns-container, 
+.hero__actions { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* Estilo dos Botões */
 .btn {
-    display: inline-block; padding: 0.9rem 2rem;
-    border-radius: 8px; font-weight: 600; cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    line-height: 1;
+    font-size: 1rem;
+    border: 2px solid transparent; /* Evita pulos */
 }
-.btn--primary {
-    background: linear-gradient(135deg, var(--color-blue-accent), #26538f);
-    color: white; box-shadow: 0 4px 15px rgba(58, 95, 143, 0.4);
-}
-.btn--secondary {
-    border: 2px solid white; color: white;
-}
-.btn--secondary:hover { background: white; color: var(--color-navy-primary); }
 
-/* Stats Grid */
-.hero__stats {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+/* Botão Verde */
+.btn--neoprag-primary {
+    background-color: #7AB800;
+    color: white;
+    box-shadow: 0 4px 20px rgba(122, 184, 0, 0.4);
 }
-.stat-card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 2rem; text-align: center; border-radius: var(--border-radius);
-    transition: transform 0.3s;
+.btn--neoprag-primary:hover {
+    background-color: #6a9e00;
+    transform: translateY(-3px);
 }
-.stat-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); }
-.stat-card__number {
-    display: block; font-size: 2.5rem; font-weight: 700; color: var(--color-white);
+
+/* Botão Transparente */
+.btn--outline-white {
+    background: transparent;
+    border: 2px solid white; /* Borda Branca Grossa */
+    color: white;
 }
-.stat-card__label { font-size: 0.9rem; color: #b8c9dd; }
+.btn--outline-white:hover {
+    background: white;
+    color: #003366; /* Azul escuro no hover */
+    transform: translateY(-3px);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .hero-btns-container, .hero__actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn { width: 100%; }
+}
 
 /* =========================================
    5. COMPONENTS (Cards & Features)
@@ -2293,4 +2338,454 @@ ul { list-style: none; }
         text-align: center;
     }
     .btn-accept-cookies { width: 100%; }
+}
+/* =========================================
+   CHATBOT WIDGET (INTEGRADO COM N8N)
+   ========================================= */
+
+/* Botão Flutuante */
+.chat-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #72A724, #8ABE49);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(114, 167, 36, 0.4);
+    transition: all 0.3s ease;
+    z-index: 9998;
+    font-size: 1.5rem;
+}
+
+.chat-button:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 12px 35px rgba(114, 167, 36, 0.6);
+}
+
+.chat-button i {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Janela do Chat */
+.chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 380px;
+    height: 550px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.chat-window.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Header do Chat */
+.chat-header {
+    background: linear-gradient(135deg, #3C5518, #72A724);
+    color: white;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px 16px 0 0;
+}
+
+.chat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.chat-header-info i {
+    font-size: 1.3rem;
+}
+
+.close-chat-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.close-chat-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: rotate(90deg);
+}
+
+/* Área de Mensagens */
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+}
+
+/* Mensagens */
+.message {
+    display: flex;
+    gap: 10px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bot-message {
+    align-self: flex-start;
+}
+
+.user-message {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.message-avatar {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #72A724, #8ABE49);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.bot-message .message-content {
+    background: white;
+    color: #333;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.user-message .message-content {
+    background: linear-gradient(135deg, #72A724, #8ABE49);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+/* Indicador de Digitação */
+.typing-indicator .message-content {
+    padding: 0.8rem 1.5rem;
+}
+
+.typing-dots {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.typing-dots span {
+    width: 8px;
+    height: 8px;
+    background: #72A724;
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+    30% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+}
+
+/* Input de Mensagem */
+.chat-input-container {
+    display: flex;
+    padding: 1rem;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    gap: 10px;
+}
+
+#chatInput {
+    flex: 1;
+    border: 2px solid #e5e7eb;
+    border-radius: 25px;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#chatInput:focus {
+    border-color: #72A724;
+}
+
+.send-message-btn {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #72A724, #8ABE49);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    font-size: 1rem;
+}
+
+.send-message-btn:hover {
+    transform: scale(1.1);
+}
+
+.send-message-btn:active {
+    transform: scale(0.95);
+}
+
+/* Responsivo Mobile */
+@media (max-width: 768px) {
+    .chat-window {
+        width: calc(100% - 20px);
+        right: 10px;
+        left: 10px;
+        bottom: 90px;
+        height: 500px;
+    }
+
+    .chat-button {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+/* =================================================================
+   HERO FINAL: IDÊNTICO AO VÍDEO E FOTO 2
+   ================================================================= */
+
+/* 1. O Fundo Exato (Azul Petróleo Muito Escuro e Fosco) */
+#hero-video-ref {
+    background-color: #182432 !important; /* Azul Navy profundo e fosco */
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    position: relative;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* 2. Layout Lado a Lado Rígido */
+#hero-video-ref .container-video {
+    width: 100%;
+    max-width: 1250px; /* Um pouco mais largo para o texto caber */
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* --- TEXTO (ESQUERDA) --- */
+#hero-video-ref .content-video {
+    flex: 1;
+    text-align: left;
+}
+
+#hero-video-ref h1 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700; 
+    font-size: 4.2rem; /* FONTE GIGANTE */
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+#hero-video-ref h1 strong {
+    font-weight: 800; /* Extra Bold */
+    color: #ffffff;   /* Branco Puro (Sem verde) */
+    display: block;   
+}
+
+.subtitle-video {
+    color: #5680b0; /* Azul acinzentado */
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.desc-video {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 550px;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+
+/* Botões do Vídeo */
+.btns-video {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-video-solid {
+    background-color: #264a7a; /* Azul sólido */
+    color: white;
+    padding: 14px 35px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: 0.3s;
+    border: 1px solid #264a7a;
+}
+
+.btn-video-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Borda cinza clara */
+    color: white;
+    padding: 14px 35px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn-video-outline:hover {
+    border-color: #ffffff;
+    background: rgba(255,255,255,0.05);
+}
+
+/* --- CARDS (DIREITA) --- */
+#hero-video-ref .cards-video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px; 
+    width: 380px; 
+}
+
+.card-video {
+    background: rgba(30, 45, 60, 0.4); /* Fundo escuro sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda muito fina */
+    border-radius: 6px; /* Cantos pouco arredondados (quadrados) */
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card-video:hover {
+    background: rgba(40, 55, 70, 0.6);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-video .val {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem; /* Número grande */
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.card-video .lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: #A0B0C0; /* Cinza azulado */
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+/* RESPONSIVO */
+@media (max-width: 992px) {
+    #hero-video-ref .container-video {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+    #hero-video-ref .content-video {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .desc-video { text-align: center; }
+    .btns-video { justify-content: center; }
 }
