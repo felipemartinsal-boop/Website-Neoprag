@@ -326,6 +326,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // ==================================================
+    // 5. BOTÕES DE PLANOS -> ABRIR CHATBOT COM MENSAGEM
+    // ==================================================
+
+    /**
+     * Captura cliques nos botões de planos e abre o chatbot
+     * com a mensagem pré-preenchida do data-message
+     */
+    const planButtons = document.querySelectorAll('.btn-plan-chat');
+
+    planButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Pega a mensagem do atributo data-message
+            const planMessage = btn.getAttribute('data-message');
+
+            // Abre o chatbot
+            chatWindow.classList.add('active');
+
+            // Adiciona a mensagem do usuário ao chat
+            if (planMessage) {
+                addMessage(planMessage, false);
+                // Envia automaticamente para o n8n
+                sendToN8N(planMessage);
+            }
+
+            // Foca no input para continuar a conversa
+            chatInput.focus();
+        });
+    });
+
     console.log('Branct System: Core loaded successfully.');
 });
 /* =========================================
