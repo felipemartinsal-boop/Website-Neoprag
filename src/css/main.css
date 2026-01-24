@@ -1725,6 +1725,33 @@ ul { list-style: none; }
 }
 .social-btn:hover { background: white; color: #000; transform: translateY(-3px); }
 
+/* Botão Licenciados */
+.btn-licenciados {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1.2rem;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #72A724, #8ABE49);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(114, 167, 36, 0.3);
+}
+
+.btn-licenciados:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(114, 167, 36, 0.5);
+    background: linear-gradient(135deg, #8ABE49, #72A724);
+}
+
+.btn-licenciados i {
+    font-size: 1rem;
+}
+
 .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.1);
     padding-top: 2rem;
