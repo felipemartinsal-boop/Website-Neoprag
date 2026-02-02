@@ -3,41 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FS Consultoria Empresarial - Soluções completas em controle de pragas. Neoprag, Neoagro, Pulsar-X.">
-    
-    <meta property="og:title" content="FS Consultoria Empresarial">
-    <meta property="og:description" content="Soluções integradas em controle de pragas: residencial, empresarial e agro.">
+    <meta name="description" content="FS Consultoria - Segurança e Inteligência na Gestão do seu Negócio. Consultoria integrada em Gestão Empresarial, Finanças e Tecnologia com IA.">
+
+    <meta property="og:title" content="FS Consultoria | Gestão Empresarial & Tecnologia">
+    <meta property="og:description" content="Consultoria integrada em Gestão Empresarial, Finanças e Tecnologia com IA para empresários.">
     <meta property="og:type" content="website">
 
-    <title>FS Consultoria Empresarial | Soluções Integradas</title>
+    <title>FS Consultoria | Gestão Empresarial & Tecnologia com IA</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="./src/css/main.css">
 </head>
-<body>
+<body class="page-fs-corporate">
 
-    <header class="header" id="main-header">
+    <!-- Header -->
+    <header class="header header--corporate" id="main-header">
         <div class="container header__container">
             <div class="header__brand">
-                <a href="index.html" class="brand-link">
+                <a href="fs-consultoria.html" class="brand-link">
                     <img src="./src/img/logo-fs.png" alt="FS Consultoria Empresarial" class="header__logo-img">
                 </a>
-                
-                </div>
-            
+            </div>
+
             <nav class="nav-desktop">
                 <ul class="nav-desktop__list">
+                    <li><a href="#solucoes" class="nav-link">Soluções</a></li>
+                    <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
                     <li><a href="index.html" class="nav-link">Neoprag</a></li>
                     <li><a href="neoagro.html" class="nav-link">Neoagro</a></li>
                 </ul>
 
-                <a href="#" id="openChatBtn" class="btn--ia">
-                    Falar com Especialista
+                <a href="#contato" class="btn-corporate-cta">
+                    <i class="fas fa-calendar-check"></i>
+                    Agendar Diagnóstico
                 </a>
             </nav>
 
@@ -49,8 +52,11 @@
         </div>
     </header>
 
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
         <nav class="mobile-menu__nav">
+            <a href="#solucoes" class="mobile-nav-link">Soluções</a>
+            <a href="#diferenciais" class="mobile-nav-link">Diferenciais</a>
             <a href="index.html" class="mobile-nav-link">Neoprag</a>
             <a href="neoagro.html" class="mobile-nav-link">Neoagro</a>
             <a href="#contato" class="mobile-nav-link">Contato</a>
@@ -58,274 +64,337 @@
     </div>
 
     <main>
-      <section id="hero-video-ref">
-    <div class="container-video">
-        
-        <div class="content-video">
-            <h1>
-                Soluções<br>
-                <strong>Integradas</strong>
-            </h1>
-            
-            <span class="subtitle-video">Consultoria Empresarial e Serviços Técnicos</span>
-            
-            <p class="desc-video">
-                Estratégia, tecnologia e soluções inteligentes reunidas em quatro empresas para proteção completa de ambientes urbanos e rurais.
-            </p>
-            
-            <div class="btns-video">
-                <a href="#contato" class="btn-video-solid">Falar com Especialista</a>
-                <a href="#empresas" class="btn-video-outline">Conhecer Empresas</a>
-            </div>
-        </div>
+        <!-- HERO SECTION -->
+        <section class="hero-corporate">
+            <div class="hero-corporate__bg"></div>
+            <div class="container hero-corporate__container">
+                <div class="hero-corporate__content">
+                    <span class="hero-corporate__badge">
+                        <i class="fas fa-shield-alt"></i> Consultoria B2B
+                    </span>
 
-        <div class="cards-video-grid">
-            <div class="card-video">
-                <span class="val">4</span>
-                <span class="lbl">Empresas<br>Especializadas</span>
-            </div>
-            <div class="card-video">
-                <span class="val">100%</span>
-                <span class="lbl">Soluções<br>Personalizadas</span>
-            </div>
-            <div class="card-video">
-                <span class="val">24/7</span>
-                <span class="lbl">Suporte<br>Disponível</span>
-            </div>
-            <div class="card-video">
-                <span class="val">360°</span>
-                <span class="lbl">Proteção<br>Total</span>
-            </div>
-        </div>
+                    <h1 class="hero-corporate__title">
+                        Segurança e Inteligência<br>
+                        <span class="text-gradient-gold">na Gestão do seu Negócio</span>
+                    </h1>
 
-    </div>
-</section>
+                    <p class="hero-corporate__subtitle">
+                        Consultoria integrada em Gestão Empresarial, Finanças e Tecnologia com IA.
+                    </p>
 
-        <section id="empresas" class="section bg-light">
+                    <p class="hero-corporate__desc">
+                        Transformamos a gestão da sua empresa com estratégias personalizadas,
+                        processos otimizados e tecnologia de ponta para resultados mensuráveis.
+                    </p>
+
+                    <div class="hero-corporate__actions">
+                        <a href="#contato" class="btn-corporate-primary">
+                            <i class="fas fa-calendar-check"></i>
+                            Agendar Diagnóstico Executivo
+                        </a>
+                        <a href="#solucoes" class="btn-corporate-outline">
+                            <i class="fas fa-arrow-down"></i>
+                            Conhecer Soluções
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-corporate__visual">
+                    <div class="stats-grid">
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon gold"><i class="fas fa-chart-line"></i></div>
+                            <span class="stat-value">+150%</span>
+                            <span class="stat-label">Crescimento Médio</span>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon cyan"><i class="fas fa-robot"></i></div>
+                            <span class="stat-value">IA</span>
+                            <span class="stat-label">Tecnologia Aplicada</span>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon gold"><i class="fas fa-users-cog"></i></div>
+                            <span class="stat-value">360°</span>
+                            <span class="stat-label">Visão Completa</span>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon cyan"><i class="fas fa-award"></i></div>
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Personalizado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUÇÕES - 3 PILARES -->
+        <section id="solucoes" class="section-solutions">
             <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Nossas Empresas</h2>
-                    <p class="section-description">
-                        Três marcas especializadas, uma única missão: oferecer controle de pragas eficiente, seguro e tecnicamente avançado.
+                <div class="section-header-corporate">
+                    <span class="section-badge">Nossos Pilares</span>
+                    <h2 class="section-title-corporate">Soluções Integradas</h2>
+                    <p class="section-desc-corporate">
+                        Três pilares estratégicos que transformam a gestão da sua empresa.
                     </p>
                 </div>
 
-                <div class="grid grid--3-cols">
-                    <article class="card company-card theme-neoprag">
-                        <div class="company-card__icon logo-container">
-                             <img src="./src/img/logo-neoprag.png" alt="Neoprag" class="card-logo-img">
-                         </div>
-
-                        <span class="company-card__category">Controle Urbano</span>
-                        <p class="company-card__text">
-                            Atendimento residencial, condomínios e indústrias com método profissional e segurança garantida.
-                        </p>
-                        <ul class="check-list">
-                            <li>Residencial e Condomínios</li>
-                            <li>Comercial e Industrial</li>
-                        </ul>
-                        <a href="neoprag.html" class="btn btn--full btn--neoprag">Conhecer Neoprag</a>
-                    </article>
-
-                    <article class="card company-card theme-neoagro">
-                        <div class="company-card__icon logo-container">
-                              <img src="./src/img/logo-neoagro.png" alt="Neoagro" class="card-logo-img">
+                <div class="pillars-grid">
+                    <!-- Pilar 1: Gestão Estratégica -->
+                    <article class="pillar-card glass-card-dark">
+                        <div class="pillar-icon gold">
+                            <i class="fas fa-chart-pie"></i>
                         </div>
-                        
-                        <span class="company-card__category">Controle no Agro</span>
-                        <p class="company-card__text">
-                            Soluções estratégicas para lavouras, silos e armazéns. Controle equilibrado para o campo.
+                        <h3 class="pillar-title">Gestão Estratégica & Financeira</h3>
+                        <p class="pillar-desc">
+                            Controle total sobre suas finanças e processos administrativos com metodologias comprovadas.
                         </p>
-                        <ul class="check-list">
-                            <li>Silos e Armazéns</li>
-                            <li>Áreas Rurais Produtivas</li>
+                        <ul class="pillar-list">
+                            <li><i class="fas fa-check"></i> Gestão Administrativa</li>
+                            <li><i class="fas fa-check"></i> Planejamento Financeiro</li>
+                            <li><i class="fas fa-check"></i> Contabilidade Estratégica</li>
+                            <li><i class="fas fa-check"></i> Análise Econômica</li>
                         </ul>
-                        <a href="neoagro.html" class="btn btn--full btn--neoagro">Conhecer Neoagro</a>
+                        <div class="pillar-accent gold"></div>
                     </article>
 
-                    <article class="card company-card theme-pulsar">
-                        <div class="company-card__icon logo-container">
-                                  <img src="./src/img/logo-pulsar.png" alt="Pulsar-X" class="card-logo-img">
-                          </div>
-                    
-                        <span class="company-card__category">Alta Tecnologia</span>
-                        <p class="company-card__text">
-                            Equipamentos de biotecnologia com precisão cirúrgica que eliminam bactérias, fungos e ácaros.
+                    <!-- Pilar 2: Capital Humano -->
+                    <article class="pillar-card glass-card-dark featured">
+                        <div class="featured-badge">Mais Procurado</div>
+                        <div class="pillar-icon gold">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="pillar-title">Capital Humano (RH)</h3>
+                        <p class="pillar-desc">
+                            Desenvolva equipes de alta performance com programas de capacitação sob medida.
                         </p>
-                        <ul class="check-list">
-                            <li>Sem evacuação de área</li>
-                            <li>Precisão Cirúrgica</li>
+                        <ul class="pillar-list">
+                            <li><i class="fas fa-check"></i> Treinamento Corporativo</li>
+                            <li><i class="fas fa-check"></i> Capacitação de Lideranças</li>
+                            <li><i class="fas fa-check"></i> Gestão de Pessoas</li>
+                            <li><i class="fas fa-check"></i> Clima Organizacional</li>
                         </ul>
-                        <a href="pulsar-x.html" class="btn btn--full btn--pulsar">Conhecer Pulsar-X</a>
+                        <div class="pillar-accent gold"></div>
+                    </article>
+
+                    <!-- Pilar 3: Tecnologia -->
+                    <article class="pillar-card glass-card-dark">
+                        <div class="pillar-icon cyan">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="pillar-title">Tecnologia & Inovação</h3>
+                        <p class="pillar-desc">
+                            Acelere sua transformação digital com soluções tecnológicas inteligentes.
+                        </p>
+                        <ul class="pillar-list">
+                            <li><i class="fas fa-check"></i> Websites Premium</li>
+                            <li><i class="fas fa-check"></i> CRM Integrado</li>
+                            <li><i class="fas fa-check"></i> Inteligência Artificial</li>
+                            <li><i class="fas fa-check"></i> Automação de Processos</li>
+                        </ul>
+                        <div class="pillar-accent cyan"></div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="porque" class="section">
+        <!-- DIFERENCIAIS -->
+        <section id="diferenciais" class="section-differentials">
             <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Por que Escolher a FS</h2>
-                    <p class="section-description">
-                        Conveniência de achar as melhores soluções e tecnologia em um só lugar.
+                <div class="section-header-corporate">
+                    <span class="section-badge">Por que a FS?</span>
+                    <h2 class="section-title-corporate">Nossos Diferenciais</h2>
+                    <p class="section-desc-corporate">
+                        O que nos torna a escolha certa para empresários que buscam resultados reais.
                     </p>
                 </div>
 
-                <div class="grid grid--4-cols mb-large">
-                    <div class="feature-box">
-                        <div class="feature-box__icon"><i class="fas fa-award"></i></div>
-                        <h3>Credibilidade</h3>
-                        <p>Histórico comprovado de excelência.</p>
+                <div class="differentials-grid">
+                    <div class="differential-item">
+                        <div class="differential-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="differential-content">
+                            <h4>Visão 360° da Empresa</h4>
+                            <p>Análise completa de todos os setores do seu negócio para decisões mais assertivas.</p>
+                        </div>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-box__icon"><i class="fas fa-clipboard-check"></i></div>
-                        <h3>Método Técnico</h3>
-                        <p>Diagnóstico preciso e estratégico.</p>
+
+                    <div class="differential-item">
+                        <div class="differential-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="differential-content">
+                            <h4>Resultados Mensuráveis</h4>
+                            <p>KPIs claros e relatórios detalhados para acompanhar sua evolução em tempo real.</p>
+                        </div>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-box__icon"><i class="fas fa-tachometer-alt"></i></div>
-                        <h3>Eficiência</h3>
-                        <p>Resultados rápidos e duradouros.</p>
+
+                    <div class="differential-item">
+                        <div class="differential-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="differential-content">
+                            <h4>Parceria de Longo Prazo</h4>
+                            <p>Não somos apenas consultores, somos parceiros estratégicos do seu crescimento.</p>
+                        </div>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-box__icon"><i class="fas fa-puzzle-piece"></i></div>
-                        <h3>Ecossistema</h3>
-                        <p>Tudo em um único lugar.</p>
+
+                    <div class="differential-item">
+                        <div class="differential-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="differential-content">
+                            <h4>IA Aplicada ao Negócio</h4>
+                            <p>Utilizamos inteligência artificial para otimizar processos e prever tendências.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section id="contato" class="section-cta-corporate">
+            <div class="container">
+                <div class="cta-corporate-box glass-card-dark">
+                    <div class="cta-corporate-content">
+                        <span class="cta-badge">Pronto para Transformar?</span>
+                        <h2 class="cta-title">
+                            Agende seu <span class="text-gradient-gold">Diagnóstico Executivo</span> Gratuito
+                        </h2>
+                        <p class="cta-desc">
+                            Uma análise completa da sua empresa com insights valiosos e um plano de ação personalizado. Sem compromisso.
+                        </p>
+                        <div class="cta-actions">
+                            <a href="https://wa.me/5569993614353?text=Olá, gostaria de agendar um Diagnóstico Executivo gratuito." target="_blank" class="btn-corporate-primary large">
+                                <i class="fab fa-whatsapp"></i>
+                                Agendar pelo WhatsApp
+                            </a>
+                            <a href="#" id="openChatBtn" class="btn-corporate-outline">
+                                <i class="fas fa-robot"></i>
+                                Falar com IA
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cta-corporate-visual">
+                        <div class="cta-icon-box">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EMPRESAS DO GRUPO -->
+        <section id="empresas" class="section-companies">
+            <div class="container">
+                <div class="section-header-corporate light">
+                    <span class="section-badge dark">Ecossistema FS</span>
+                    <h2 class="section-title-corporate dark">Empresas do Grupo</h2>
+                    <p class="section-desc-corporate dark">
+                        Além da consultoria, oferecemos soluções especializadas através das nossas empresas.
+                    </p>
+                </div>
+
+                <div class="companies-grid">
+                    <a href="index.html" class="company-link-card">
+                        <img src="./src/img/logo-neoprag.png" alt="Neoprag" class="company-logo">
+                        <span class="company-name">Neoprag</span>
+                        <span class="company-desc">Controle de Pragas Urbano</span>
+                    </a>
+                    <a href="neoagro.html" class="company-link-card">
+                        <img src="./src/img/logo-neoagro.png" alt="Neoagro" class="company-logo">
+                        <span class="company-name">Neoagro</span>
+                        <span class="company-desc">Controle de Pragas no Agro</span>
+                    </a>
+                    <a href="pulsar-x.html" class="company-link-card">
+                        <img src="./src/img/logo-pulsar.png" alt="Pulsar-X" class="company-logo">
+                        <span class="company-name">Pulsar-X</span>
+                        <span class="company-desc">Tecnologia & Equipamentos</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ONDE ESTAMOS -->
+        <section class="section-map">
+            <div class="container">
+                <div class="map-header">
+                    <span class="section-subtitle-sm">Abrangência Nacional</span>
+                    <h2 class="section-title-map">Onde Estamos</h2>
+                    <p class="mb-large" style="max-width: 600px; color: #666;">
+                        Estrutura completa e logística integrada para atender o Norte e o Sul do país.
+                    </p>
+                </div>
+
+                <div class="map-grid">
+                    <div class="locations-list">
+                        <div class="loc-card highlight">
+                            <div class="state-badge matriz">RO</div>
+                            <div>
+                                <span class="unit-type">Matriz</span>
+                                <h3>Vilhena (VHA)</h3>
+                                <p style="color: #333; font-weight: 600; margin-bottom: 4px;">Atende MT e RO</p>
+                                <p style="font-size: 0.85rem; margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: #D4AF37; margin-right: 5px;"></i>Rua Walter Dourado, 5386, Centro</p>
+                                <p style="font-size: 0.85rem;"><i class="fas fa-phone-alt" style="color: #D4AF37; margin-right: 5px;"></i><a href="tel:+5569993614353" style="color: #333; text-decoration: none;">(69) 99361-4353</a></p>
+                            </div>
+                        </div>
+
+                        <div class="loc-card">
+                            <div class="state-badge filial">RO</div>
+                            <div>
+                                <span class="unit-type">Filial</span>
+                                <h3>Porto Velho (PVH)</h3>
+                                <p style="color: #333; font-weight: 600; margin-bottom: 4px;">Atende RO, AC e sul do AM</p>
+                                <p style="font-size: 0.85rem; margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: #D4AF37; margin-right: 5px;"></i>Rua Angico, 3760, Conceição</p>
+                                <p style="font-size: 0.85rem;"><i class="fas fa-phone-alt" style="color: #D4AF37; margin-right: 5px;"></i><a href="tel:+5569992805752" style="color: #333; text-decoration: none;">(69) 99280-5752</a></p>
+                            </div>
+                        </div>
+
+                        <div class="loc-card">
+                            <div class="state-badge filial">PR</div>
+                            <div>
+                                <span class="unit-type">Filial</span>
+                                <h3>Candói</h3>
+                                <p style="color: #333; font-weight: 600; margin-bottom: 4px;">Atende PR</p>
+                                <p style="font-size: 0.85rem; margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: #D4AF37; margin-right: 5px;"></i>Rua Anibal Pedro da Luz, 132, Santa Clara</p>
+                                <p style="font-size: 0.85rem;"><i class="fas fa-phone-alt" style="color: #D4AF37; margin-right: 5px;"></i><a href="tel:+5542999978136" style="color: #333; text-decoration: none;">(42) 99997-8136</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="map-visual">
+                        <img src="./src/img/mapa-atuacao.png" alt="Mapa de Atuação FS" class="map-img">
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <section id="consultoria" class="premium-consulting">
-        <div class="consulting-bg-pattern"></div>
-        
-        <div class="container relative z-10">
-            <div class="consulting-grid">
-                
-                <div class="consulting-content animate-fade-up">
-                    <span class="consulting-badge">Soluções Corporativas</span>
-                    <h2 class="consulting-title">
-                        Eleve o padrão de <br>
-                        <span class="text-gold">Segurança Sanitária</span> da sua empresa.
-                    </h2>
-                    <p class="consulting-desc">
-                        Não vendemos apenas controle de pragas. A FS Consultoria entrega inteligência, conformidade legal e proteção de marca. 
-                        Preparamos seu negócio para as auditorias mais rigorosas do mercado.
-                    </p>
-                    
-                    <a href="https://wa.me/5569993614353" target="_blank" class="btn btn--gold">
-                        Agendar Diagnóstico Executivo
-                    </a>
-                </div>
-
-                <div class="consulting-visual animate-fade-up">
-                    <div class="glass-card">
-                        <h3>O que entregamos:</h3>
-                        <ul class="premium-list">
-                            <li>
-                                <div class="icon-gold"><i class="fas fa-file-contract"></i></div>
-                                <div>
-                                    <strong>Auditorias & Laudos</strong>
-                                    <p>Documentação técnica completa para ANVISA e ISO.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon-gold"><i class="fas fa-shield-alt"></i></div>
-                                <div>
-                                    <strong>Gestão de Riscos</strong>
-                                    <p>Mapeamento preventivo de ameaças ao ambiente.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon-gold"><i class="fas fa-chalkboard-teacher"></i></div>
-                                <div>
-                                    <strong>Treinamento de Equipes</strong>
-                                    <p>Capacitação do seu time sobre boas práticas.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-<section class="section-map">
-        <div class="container">
-            
-            <div class="map-header">
-                <span class="section-subtitle-sm">Abrangência Nacional</span>
-                <h2 class="section-title-map">Onde Estamos</h2>
-                <p class="mb-large" style="max-width: 600px; color: #666;">
-                    Estrutura completa e logística integrada para atender o Norte e o Sul do país.
-                </p>
-            </div>
-
-            <div class="map-grid">
-                
-                <div class="locations-list">
-
-    <div class="loc-card highlight">
-        <div class="state-badge matriz">RO</div>
-        <div>
-            <span class="unit-type">Matriz</span>
-            <h3>Vilhena (VHA)</h3>
-            <p style="color: #333; font-weight: 600; margin-bottom: 4px;">Atende MT e RO</p>
-            <p style="font-size: 0.85rem; margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: #72A724; margin-right: 5px;"></i>Rua Walter Dourado, 5386, Centro</p>
-            <p style="font-size: 0.85rem;"><i class="fas fa-phone-alt" style="color: #72A724; margin-right: 5px;"></i><a href="tel:+5569993614353" style="color: #333; text-decoration: none;">(69) 99361-4353</a></p>
-        </div>
-    </div>
-
-    <div class="loc-card">
-        <div class="state-badge filial">RO</div>
-        <div>
-            <span class="unit-type">Filial</span>
-            <h3>Porto Velho (PVH)</h3>
-            <p style="color: #333; font-weight: 600; margin-bottom: 4px;">Atende RO, AC e sul do AM</p>
-            <p style="font-size: 0.85rem; margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: #72A724; margin-right: 5px;"></i>Rua Angico, 3760, Conceição</p>
-            <p style="font-size: 0.85rem;"><i class="fas fa-phone-alt" style="color: #72A724; margin-right: 5px;"></i><a href="tel:+5569992805752" style="color: #333; text-decoration: none;">(69) 99280-5752</a></p>
-        </div>
-    </div>
-
-    <div class="loc-card">
-        <div class="state-badge filial">PR</div>
-        <div>
-            <span class="unit-type">Filial</span>
-            <h3>Candói</h3>
-            <p style="color: #333; font-weight: 600; margin-bottom: 4px;">Atende PR</p>
-            <p style="font-size: 0.85rem; margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: #72A724; margin-right: 5px;"></i>Rua Anibal Pedro da Luz, 132, Santa Clara</p>
-            <p style="font-size: 0.85rem;"><i class="fas fa-phone-alt" style="color: #72A724; margin-right: 5px;"></i><a href="tel:+5542999978136" style="color: #333; text-decoration: none;">(42) 99997-8136</a></p>
-        </div>
-    </div>
-
-</div>
-
-                <div class="map-visual">
-                    <img src="./src/img/mapa-atuacao.png" alt="Mapa de Atuação FS - RO, MT, AC, AM e PR" class="map-img">
-                </div>
-
-            </div>
-        </div>
-    </section>
-   <footer class="main-footer footer--fs">
+    <!-- FOOTER -->
+    <footer class="footer-corporate">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <img src="./src/img/logo-fs.png" alt="FS Consultoria" class="footer-logo-img">
-                    <span class="footer-slogan">"Excelência e inovação em controle de pragas e consultoria."</span>
+                    <span class="footer-slogan">"Segurança e Inteligência na Gestão do seu Negócio."</span>
                     <p style="font-size: 0.85rem; opacity: 0.6;">CNPJ: 64.024.526/0001-94</p>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Links Rápidos</h4>
+                    <h4>Soluções</h4>
                     <ul class="footer-links">
-                        <li><a href="fs-consultoria.html">Grupo FS (Holding)</a></li>
+                        <li><a href="#solucoes">Gestão Estratégica</a></li>
+                        <li><a href="#solucoes">Capital Humano</a></li>
+                        <li><a href="#solucoes">Tecnologia & IA</a></li>
+                        <li><a href="#contato">Diagnóstico Executivo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Empresas do Grupo</h4>
+                    <ul class="footer-links">
                         <li><a href="index.html">Neoprag (Urbano)</a></li>
                         <li><a href="neoagro.html">Neoagro (Rural)</a></li>
                         <li><a href="pulsar-x.html">Pulsar-X (Tech)</a></li>
-                        <li><a href="#">Blog Informativo</a></li>
-                        <li><a href="#">Área do Cliente</a></li>
                     </ul>
                 </div>
 
@@ -336,45 +405,38 @@
                         <li><i class="fas fa-phone-alt"></i><span>(69) 99361-4353</span></li>
                         <li><i class="fas fa-envelope"></i><span>contato@fsconsultoria.com.br</span></li>
                     </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Conecte-se</h4>
-                    <div class="footer-social">
+                    <div class="footer-social" style="margin-top: 1rem;">
                         <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://wa.me/5569993614353" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
                     </div>
-                    <a href="https://www.phcfocosistema.com.br/neoprag/novo/" target="_blank" class="btn-licenciados">
+                    <a href="https://www.phcfocosistema.com.br/neoprag/novo/" target="_blank" class="btn-licenciados" style="margin-top: 1rem;">
                         <i class="fas fa-id-badge"></i> Licenciados
                     </a>
                 </div>
             </div>
 
             <div class="footer-bottom">
-
-                <p>&copy; 2026 Grupo FS - Soluções Integradas.</p>
-                
+                <p>&copy; 2026 FS Consultoria - Gestão Empresarial & Tecnologia.</p>
                 <div class="footer-legal-row">
                     <a href="politica.html">Política de Privacidade</a>
                     <span class="separator">|</span>
                     <a href="termos.html">Termos de Uso</a>
                 </div>
-
                 <p class="dev-credits">
                     Desenvolvido por <a href="#" target="_blank" style="color: inherit; text-decoration: none;">Branct Studio</a>
                 </p>
-
             </div>
         </div>
     </footer>
 
     <script src="./src/js/main.js" defer></script>
-<div class="cookie-banner" id="cookieBanner">
+
+    <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
             <p>
-                Utilizamos cookies para melhorar sua experiência e analisar o tráfego. 
-                Ao continuar, você concorda com nossa 
+                Utilizamos cookies para melhorar sua experiência e analisar o tráfego.
+                Ao continuar, você concorda com nossa
                 <a href="politica.html" target="_blank">Política de Privacidade</a>.
             </p>
             <button class="btn-accept-cookies" id="btnAcceptCookies">
