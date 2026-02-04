@@ -92,40 +92,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Contact Form Handler
-     * Funciona para todos os formulários com ID 'contactForm'
+     * Envia formulários para a assistente de IA via n8n
      */
     const contactForm = document.getElementById('contactForm');
-    
+
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             // Feedback UI (Loading)
             const btn = contactForm.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
-            const loadingText = '<i class="fas fa-spinner fa-spin"></i> Processando...';
-            
+            const loadingText = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
             btn.innerHTML = loadingText;
             btn.disabled = true;
 
-            // Simula envio para API (1.5 segundos)
-            setTimeout(() => {
-                // Mostrar Toast Notification
-                const toast = document.getElementById('toast');
-                if (toast) {
-                    toast.classList.add('show');
-                    setTimeout(() => {
-                        toast.classList.remove('show');
-                    }, 4000);
-                }
+            // Coleta dados do formulário
+            const formData = new FormData(contactForm);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
 
-                // Resetar Formulário
-                contactForm.reset();
+            // Monta mensagem formatada para a IA
+            const mensagemFormatada = `📋 NOVO CONTATO DO SITE
+
+👤 Nome: ${formObject.nome || 'Não informado'}
+🏢 Empresa: ${formObject.empresa || 'Não informado'}
+📱 WhatsApp: ${formObject.whatsapp || 'Não informado'}
+📧 Email: ${formObject.email || 'Não informado'}
+🔧 Serviço: ${formObject.servico || formObject.assunto || 'Não informado'}
+💬 Mensagem: ${formObject.mensagem || 'Não informado'}
+📍 Página: ${window.location.pathname}`;
+
+            try {
+                // Envia para o webhook do n8n (mesmo da assistente IA)
+                const response = await fetch('https://n8n.automaai.org/webhook/neoprag-site', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        type: 'form_submission',
+                        message: mensagemFormatada,
+                        data: formObject,
+                        timestamp: new Date().toISOString(),
+                        source: window.location.href
+                    })
+                });
+
+                if (response.ok) {
+                    // Mostrar Toast Notification de sucesso
+                    const toast = document.getElementById('toast');
+                    if (toast) {
+                        toast.classList.add('show');
+                        setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 4000);
+                    }
+
+                    // Resetar Formulário
+                    contactForm.reset();
+                    console.log('Formulário enviado para a assistente IA com sucesso.');
+                } else {
+                    throw new Error('Erro no envio');
+                }
+            } catch (error) {
+                console.error('Erro ao enviar formulário:', error);
+                alert('Ocorreu um erro ao enviar. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+            } finally {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-                
-                console.log('Formulário enviado com sucesso.');
-            }, 1500);
+            }
         });
     }
 
