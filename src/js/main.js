@@ -397,6 +397,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ==================================================
+    // 6. SCROLL REVEAL ANIMATIONS (IntersectionObserver)
+    // ==================================================
+
+    const revealElements = document.querySelectorAll('[data-animate], [data-stagger]');
+
+    if (revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    }
+
+    // ==================================================
+    // 7. COUNTER ANIMATION (Stat Cards FS Consultoria)
+    // ==================================================
+
+    const counterElements = document.querySelectorAll('[data-counter]');
+
+    if (counterElements.length > 0) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const finalText = el.getAttribute('data-counter');
+                    const prefix = el.getAttribute('data-prefix') || '';
+                    const suffix = el.getAttribute('data-suffix') || '';
+                    const numericValue = parseInt(finalText);
+
+                    if (!isNaN(numericValue)) {
+                        let current = 0;
+                        const duration = 1500;
+                        const step = Math.max(1, Math.floor(numericValue / (duration / 16)));
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= numericValue) {
+                                current = numericValue;
+                                clearInterval(timer);
+                            }
+                            el.textContent = prefix + current + suffix;
+                        }, 16);
+                    } else {
+                        el.textContent = prefix + finalText + suffix;
+                    }
+
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counterElements.forEach(el => counterObserver.observe(el));
+    }
+
+    // ==================================================
+    // 8. PARALLAX SUTIL NOS HEROS
+    // ==================================================
+
+    const heroSection = document.querySelector('.hero--neoprag, .hero--neoagro, .hero--pulsar, .hero-corporate');
+
+    if (heroSection) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (scrolled < window.innerHeight) {
+                heroSection.style.backgroundPositionY = scrolled * 0.4 + 'px';
+            }
+        }, { passive: true });
+    }
+
     console.log('Branct System: Core loaded successfully.');
 });
 /* =========================================

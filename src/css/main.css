@@ -475,6 +475,213 @@ ul { list-style: none; }
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================= */
+
+/* Base: hidden before reveal */
+[data-animate] {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+}
+
+[data-animate].revealed {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) !important;
+}
+
+/* Direction variants */
+[data-animate="fade-up"] {
+    transform: translateY(40px);
+}
+
+[data-animate="fade-down"] {
+    transform: translateY(-40px);
+}
+
+[data-animate="fade-left"] {
+    transform: translateX(-50px);
+}
+
+[data-animate="fade-right"] {
+    transform: translateX(50px);
+}
+
+[data-animate="scale-in"] {
+    transform: scale(0.85);
+}
+
+[data-animate="zoom-in"] {
+    transform: scale(0.9);
+}
+
+/* Stagger delays for children */
+[data-stagger] > *:nth-child(1) { transition-delay: 0.1s; }
+[data-stagger] > *:nth-child(2) { transition-delay: 0.2s; }
+[data-stagger] > *:nth-child(3) { transition-delay: 0.3s; }
+[data-stagger] > *:nth-child(4) { transition-delay: 0.4s; }
+[data-stagger] > *:nth-child(5) { transition-delay: 0.5s; }
+[data-stagger] > *:nth-child(6) { transition-delay: 0.6s; }
+
+/* Stagger children inherit hidden state */
+[data-stagger] > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-stagger].revealed > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Speed variants */
+[data-speed="fast"] { transition-duration: 0.4s; }
+[data-speed="slow"] { transition-duration: 1.1s; }
+
+/* Enhanced Card Hover Interactions */
+.service-card,
+.card--neoagro,
+.diff-card,
+.pricing-card,
+.loc-card,
+.company-link-card,
+.feature-tech {
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s ease;
+}
+
+.service-card:hover,
+.card--neoagro:hover,
+.diff-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.loc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.feature-tech:hover {
+    transform: translateY(-8px);
+}
+
+/* Button Shine Effect */
+.btn--neoprag-primary,
+.btn--neoagro-primary,
+.btn--pulsar-primary,
+.btn-corporate-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn--neoprag-primary::after,
+.btn--neoagro-primary::after,
+.btn--pulsar-primary::after,
+.btn-corporate-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.btn--neoprag-primary:hover::after,
+.btn--neoagro-primary:hover::after,
+.btn--pulsar-primary:hover::after,
+.btn-corporate-primary:hover::after {
+    left: 120%;
+}
+
+/* Process Step Number Pulse */
+.process-number {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step:hover .process-number {
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Section Title Underline Animation */
+.section-title::after,
+.section-title-corporate::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: currentColor;
+    margin: 10px auto 0;
+    border-radius: 2px;
+    transition: width 0.6s ease;
+    opacity: 0.4;
+}
+
+[data-animate].revealed .section-title::after,
+[data-animate].revealed .section-title-corporate::after {
+    width: 60px;
+}
+
+/* Icon Float on Hover */
+.service-card i,
+.card--neoagro .icon-wrapper i,
+.pillar-icon i {
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover i,
+.card--neoagro:hover .icon-wrapper i {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.pillar-card:hover .pillar-icon i {
+    transform: rotateY(180deg);
+}
+
+/* Stat Counter Glow */
+.stat-value {
+    transition: text-shadow 0.3s ease;
+}
+
+.stat-card:hover .stat-value {
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Parallax-lite for hero backgrounds */
+.hero--neoprag,
+.hero--neoagro,
+.hero--pulsar,
+.hero-corporate {
+    background-attachment: fixed;
+}
+
+/* Smooth header transition */
+.header {
+    transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    [data-animate],
+    [data-stagger] > * {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
 /* =========================================
    6. NEOPRAG IDENTITY & VARIANTS
    ========================================= */
