@@ -3,135 +3,442 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Site temporariamente indisponível</title>
+    <meta name="description" content="Neoagro - Controle profissional de pragas no agronegócio. Lavouras, armazéns e silos.">
+    <meta property="og:title" content="Neoagro - Controle de Pragas no Agro">
+    <meta property="og:type" content="website">
+    
+    <title>Neoagro | Tecnologia e Precisão no Campo</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans:wght@400;600;700;800&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --color-forest: #1b4332;
-            --color-accent: #2d6a4f;
-            --color-light: #f1f7f4;
-            --color-text: #2b2b2b;
-            --color-muted: #6b7b73;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: radial-gradient(circle at 50% 0%, #ffffff 0%, var(--color-light) 100%);
-            color: var(--color-text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 24px;
-            line-height: 1.6;
-        }
-
-        .card {
-            max-width: 560px;
-            width: 100%;
-            background: #ffffff;
-            border: 1px solid rgba(27, 67, 50, 0.08);
-            border-radius: 20px;
-            box-shadow: 0 24px 60px rgba(27, 67, 50, 0.10);
-            padding: 48px 40px;
-            text-align: center;
-        }
-
-        .logo {
-            width: 150px;
-            max-width: 60%;
-            height: auto;
-            margin-bottom: 28px;
-        }
-
-        .badge {
-            display: inline-block;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--color-accent);
-            background: rgba(45, 106, 79, 0.10);
-            padding: 6px 14px;
-            border-radius: 999px;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 1.65rem;
-            font-weight: 700;
-            color: var(--color-forest);
-            margin-bottom: 14px;
-        }
-
-        p {
-            font-size: 1.02rem;
-            color: var(--color-muted);
-            margin-bottom: 12px;
-        }
-
-        p strong {
-            color: var(--color-text);
-        }
-
-        .divider {
-            width: 48px;
-            height: 3px;
-            background: var(--color-accent);
-            border-radius: 999px;
-            margin: 26px auto;
-            opacity: 0.5;
-        }
-
-        .footer {
-            font-size: 0.82rem;
-            color: var(--color-muted);
-            margin-top: 8px;
-        }
-
-        @media (max-width: 480px) {
-            .card { padding: 36px 24px; }
-            h1 { font-size: 1.4rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="./src/css/main.css">
 </head>
-<body>
-    <main class="card">
-        <img src="./src/img/logo-neoprag.png" alt="Logo" class="logo"
-             onerror="this.style.display='none'">
+<body class="page-neoagro">
 
-        <span class="badge">Site temporariamente fora do ar</span>
+    <header class="header header--neoagro" id="main-header">
+        <div class="container header__container">
+            <div class="header__brand">
+                <a href="neoagro.html" class="brand-link">
+                    <img src="./src/img/logo-neoagro.png" alt="Neoagro" class="header__logo-img">
+                </a>
+            </div>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-desktop__list">
+                    <li><a href="index.html" class="nav-link">Neoprag</a></li>
+                    <li><a href="neoagro.html" class="nav-link active">Neoagro</a></li>
+                </ul>
 
-        <h1>Estamos temporariamente indisponíveis</h1>
+                <a href="#catalogo" class="btn btn--neoagro-outline" style="margin-left: 20px;">
+                    <i class="fas fa-book-open"></i> Catálogo
+                </a>
 
-        <p>
-            Nosso site está passando por uma <strong>manutenção temporária</strong>
-            e voltará ao ar em breve.
-        </p>
-        <p>
-            Agradecemos a compreensão.
-        </p>
+                <a href="#contato" class="btn btn--neoagro-secondary" style="margin-left: 10px;">
+                    Falar com Especialista
+                </a>
 
-        <div class="divider"></div>
+                <a href="https://www.phcfocosistema.com.br/neoprag/minhaconta/" target="_blank" class="btn-client-area" style="color: white;">
+                    <i class="fas fa-user-circle"></i>
+                    Área do Cliente
+                </a>
+            </nav>
 
-        <p class="footer">
-            Em caso de dúvidas, entre em contato com o responsável pelo site.
-        </p>
+            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" style="background: var(--color-neoagro-dark);">
+        <nav class="mobile-menu__nav">
+            <a href="index.html" class="mobile-nav-link">Neoprag</a>
+            <a href="neoagro.html" class="mobile-nav-link">Neoagro</a>
+            <a href="#catalogo" class="mobile-nav-link"><i class="fas fa-book-open"></i> Catálogo</a>
+            <a href="#contato" class="mobile-nav-link">Contato</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="hero--neoagro">
+            
+            <div class="container hero__container-center">
+                <div class="animate-fade-up max-w-4xl mx-auto text-center relative z-10">
+                    <span class="hero__badge mb-4">Controle de Pragas no Agronegócio</span>
+                    
+                    <h1 class="hero__title mb-6">
+                        Proteja Sua Produção <br>
+                        com <span style="color: #B3FF5E;">Tecnologia</span>
+                    </h1>
+                    
+                    <p class="hero__description mx-auto mb-10">
+                        Soluções técnicas e eficientes para lavouras, armazéns, silos e ambientes rurais. 
+                        Controle equilibrado com consciência ambiental.
+                    </p>
+                    
+                    <div class="hero__actions justify-center gap-4">
+                        <a href="#contato" class="btn btn--neoagro-primary text-lg px-8 py-4">
+                            Solicitar Visita Técnica
+                        </a>
+                        <a href="#solucoes" class="btn btn--neoagro-secondary text-lg px-8 py-4" style="border-color: white; color: white;">
+                            Ver Soluções
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solucoes" class="section bg-light">
+            <div class="container">
+                <div class="section-header text-center" data-animate="fade-up">
+                    <h2 class="section-title">Soluções para o Campo</h2>
+                    <p class="section-description">Controle técnico e estratégico para todos os segmentos do agro.</p>
+                </div>
+
+                <div class="grid grid--3-cols" data-stagger>
+                    <div class="service-card card--neoagro">
+                        <div class="icon-wrapper"><i class="fas fa-seedling"></i></div>
+                        <h3>Lavouras</h3>
+                        <p class="company-card__text">Controle em cultivos de grãos, hortaliças e frutas. Monitoramento integrado e aplicações direcionadas.</p>
+                    </div>
+                    
+                    <div class="service-card card--neoagro">
+                        <div class="icon-wrapper"><i class="fas fa-warehouse"></i></div>
+                        <h3>Armazéns e Silos</h3>
+                        <p class="company-card__text">Proteção de grãos armazenados contra insetos e roedores. Controle preventivo seguro.</p>
+                    </div>
+
+                    <div class="service-card card--neoagro">
+                        <div class="icon-wrapper"><i class="fas fa-tractor"></i></div>
+                        <h3>Instalações Rurais</h3>
+                        <p class="company-card__text">Controle em casas sede, galpões, estábulos e edificações da propriedade.</p>
+                    </div>
+
+                    <div class="service-card card--neoagro">
+                        <div class="icon-wrapper"><i class="fas fa-industry"></i></div>
+                        <h3>Agroindústrias</h3>
+                        <p class="company-card__text">Soluções para processamento e beneficiamento. Adequação a normas sanitárias.</p>
+                    </div>
+
+                    <div class="service-card card--neoagro">
+                        <div class="icon-wrapper"><i class="fas fa-cow"></i></div>
+                        <h3>Pecuária</h3>
+                        <p class="company-card__text">Controle de moscas e vetores em áreas de criação. Segurança para os animais.</p>
+                    </div>
+
+                    <div class="service-card card--neoagro">
+                        <div class="icon-wrapper"><i class="fas fa-microscope"></i></div>
+                        <h3>Consultoria Técnica</h3>
+                        <p class="company-card__text">Diagnóstico, mapeamento e elaboração de planos de manejo (MIP).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="processo" class="section">
+            <div class="container">
+                <div class="section-header text-center" data-animate="fade-up">
+                    <h2 class="section-title">Nossa Abordagem Técnica</h2>
+                    <p class="section-description">Metodologia baseada em evidências científicas e boas práticas.</p>
+                </div>
+
+                <div class="grid grid--4-cols" data-stagger>
+                    <div class="process-step">
+                        <div class="process-number">1</div>
+                        <h3 style="margin-top: 1rem;">Diagnóstico</h3>
+                        <p style="font-size: 0.9rem;">Vistoria técnica completa e identificação de riscos.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">2</div>
+                        <h3 style="margin-top: 1rem;">Planejamento</h3>
+                        <p style="font-size: 0.9rem;">Estratégia com métodos químicos e biológicos.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">3</div>
+                        <h3 style="margin-top: 1rem;">Execução</h3>
+                        <p style="font-size: 0.9rem;">Aplicação com equipamentos adequados e produtos MAPA.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">4</div>
+                        <h3 style="margin-top: 1rem;">Monitoramento</h3>
+                        <p style="font-size: 0.9rem;">Acompanhamento periódico e ajustes no manejo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diferenciais" class="section bg-light">
+            <div class="container">
+                <div class="section-header text-center" data-animate="fade-up">
+                    <h2 class="section-title">Por Que Escolher a Neoagro</h2>
+                    <p class="section-description">Compromisso com a sustentabilidade do seu negócio.</p>
+                </div>
+
+                <div class="grid grid--2-cols mb-large" data-stagger>
+                    <div class="diff-card">
+                        <div class="diff-card__icon"><i class="fas fa-leaf"></i></div>
+                        <div>
+                            <h3>Consciência Ambiental</h3>
+                            <p>Priorizamos métodos de baixo impacto, respeitando a biodiversidade.</p>
+                        </div>
+                    </div>
+                    <div class="diff-card">
+                        <div class="diff-card__icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
+                            <h3>Equipe Especializada</h3>
+                            <p>Engenheiros agrônomos e técnicos com formação específica.</p>
+                        </div>
+                    </div>
+                    <div class="diff-card">
+                        <div class="diff-card__icon"><i class="fas fa-certificate"></i></div>
+                        <div>
+                            <h3>Conformidade Legal</h3>
+                            <p>Procedimentos seguindo normas do MAPA, ANVISA e legislação ambiental.</p>
+                        </div>
+                    </div>
+                    <div class="diff-card">
+                        <div class="diff-card__icon"><i class="fas fa-handshake"></i></div>
+                        <div>
+                            <h3>Parceria de Longo Prazo</h3>
+                            <p>Relações duradouras com foco na produtividade da propriedade.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-box" data-animate="scale-in">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"A Neoagro entende as necessidades do produtor rural. Tecnologia e respeito ao campo."</p>
+                    <div class="quote-author">
+                        <div class="quote-avatar">JM</div>
+                        <div style="text-align: left;">
+                            <strong>João Martins</strong>
+                            <div style="font-size: 0.85rem; color: #777;">Fazenda Santa Rita</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CATÁLOGO -->
+        <section id="catalogo" class="section" style="background: linear-gradient(135deg, #1a3a1a 0%, #2d5a2d 100%);">
+            <div class="container">
+                <div class="catalog-coming-soon" data-animate="zoom-in">
+                    <div class="catalog-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <span class="catalog-badge">Em Breve</span>
+                    <h2 class="catalog-title">Catálogo de Produtos</h2>
+                    <p class="catalog-desc">
+                        Estamos fechando parcerias com os melhores fornecedores do mercado agrícola.
+                        Em breve você terá acesso ao nosso catálogo completo de soluções.
+                    </p>
+                    <div class="catalog-features">
+                        <div class="catalog-feature">
+                            <i class="fas fa-spray-can"></i>
+                            <span>Defensivos</span>
+                        </div>
+                        <div class="catalog-feature">
+                            <i class="fas fa-tools"></i>
+                            <span>Equipamentos</span>
+                        </div>
+                        <div class="catalog-feature">
+                            <i class="fas fa-seedling"></i>
+                            <span>Biológicos</span>
+                        </div>
+                        <div class="catalog-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>EPIs</span>
+                        </div>
+                    </div>
+                    <p class="catalog-sub">
+                        <i class="fas fa-bell"></i> Quer ser avisado quando lançarmos? Entre em contato!
+                    </p>
+                    <a href="#contato" class="btn btn--neoagro-primary" style="margin-top: 1.5rem;">
+                        <i class="fas fa-envelope"></i> Receber Novidades
+                    </a>
+                </div>
+            </div>
+        </section>
+
+<section class="section-map">
+        <div class="container">
+
+            <div class="map-header">
+                <span class="section-subtitle-sm">Abrangência Nacional</span>
+                <h2 class="section-title-map">Onde Estamos</h2>
+                <p class="mb-large" style="max-width: 600px; color: #666;">
+                    Estrutura completa e logística integrada para atender o Norte e o Sul do país.
+                </p>
+            </div>
+
+            <div class="map-grid">
+                
+                <div class="locations-list">
+
+    <div class="loc-card highlight">
+        <div class="state-badge matriz">RO</div>
+        <div>
+            <span class="unit-type">Matriz</span>
+            <h3>Vilhena (VHA)</h3>
+            <p style="color: #333; font-weight: 600; margin-bottom: 4px;">Atende MT e RO</p>
+            <p style="font-size: 0.85rem; margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: #72A724; margin-right: 5px;"></i>Rua Walter Dourado, 5386, Centro</p>
+            <p style="font-size: 0.85rem;"><i class="fas fa-phone-alt" style="color: #72A724; margin-right: 5px;"></i><a href="tel:+5569993614353" style="color: #333; text-decoration: none;">(69) 99361-4353</a></p>
+        </div>
+    </div>
+
+    <div class="loc-card">
+        <div class="state-badge filial">RO</div>
+        <div>
+            <span class="unit-type">Filial</span>
+            <h3>Porto Velho (PVH)</h3>
+            <p style="color: #333; font-weight: 600; margin-bottom: 4px;">Atende RO, AC e sul do AM</p>
+            <p style="font-size: 0.85rem; margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: #72A724; margin-right: 5px;"></i>Rua Angico, 3760, Conceição</p>
+            <p style="font-size: 0.85rem;"><i class="fas fa-phone-alt" style="color: #72A724; margin-right: 5px;"></i><a href="tel:+5569992805752" style="color: #333; text-decoration: none;">(69) 99280-5752</a></p>
+        </div>
+    </div>
+
+    <div class="loc-card">
+        <div class="state-badge filial">PR</div>
+        <div>
+            <span class="unit-type">Filial</span>
+            <h3>Candói</h3>
+            <p style="color: #333; font-weight: 600; margin-bottom: 4px;">Atende PR</p>
+            <p style="font-size: 0.85rem; margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: #72A724; margin-right: 5px;"></i>Rua Anibal Pedro da Luz, 132, Santa Clara</p>
+            <p style="font-size: 0.85rem;"><i class="fas fa-phone-alt" style="color: #72A724; margin-right: 5px;"></i><a href="tel:+5542999978136" style="color: #333; text-decoration: none;">(42) 99997-8136</a></p>
+        </div>
+    </div>
+
+</div>
+
+                <div class="map-visual">
+                    <img src="./src/img/mapa-atuacao.png" alt="Mapa de Atuação FS - RO, MT, AC, AM e PR" class="map-img">
+                </div>
+
+            </div>
+        </div>
+    </section>
+        
+        <section id="contato" class="section">
+            <div class="container">
+                <div class="grid grid--2-cols" style="align-items: center;">
+                    <div>
+                        <h2 class="section-title" style="text-align: left; margin-left: 0;">Visita Técnica Gratuita</h2>
+                        <p class="mb-large">Agende uma avaliação sem compromisso. Nossa equipe visitará sua propriedade para realizar um diagnóstico completo.</p>
+                        
+                        <ul class="check-list" style="font-size: 1.1rem; margin-bottom: 2rem;">
+                            <li>Vistoria detalhada da área</li>
+                            <li>Identificação precisa de pragas</li>
+                            <li>Proposta técnica personalizada</li>
+                            <li>Orçamento transparente</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--color-neoagro-primary);">
+                        <h3 class="text-center mb-large">Solicite sua Visita</h3>
+                        <form class="form-neoprag" id="contactForm">
+                            <div>
+                                <label class="form-label">Nome do Produtor/Gestor</label>
+                                <input type="text" name="nome" required placeholder="Nome completo">
+                            </div>
+                            <div>
+                                <label class="form-label">Nome da Propriedade</label>
+                                <input type="text" name="propriedade" required placeholder="Fazenda, Sítio, Empresa...">
+                            </div>
+                            <div>
+                                <label class="form-label">Telefone / WhatsApp</label>
+                                <input type="tel" name="whatsapp" required placeholder="(00) 00000-0000">
+                            </div>
+                            <button type="submit" class="btn btn--neoagro-primary" style="width: 100%; cursor: pointer;">
+                                Agendar Visita
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer class="main-footer footer--neoagro">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="./src/img/logo-neoagro.png" alt="Neoagro" class="footer-logo-img">
+                    <span class="footer-slogan">"Tecnologia e precisão no campo."</span>
+                    <p style="font-size: 0.85rem; opacity: 0.6;">Uma empresa do Grupo FS<br>CNPJ: 64.024.526/0001-94</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="fs-consultoria.html">Grupo FS (Holding)</a></li>
+                        <li><a href="index.html">Neoprag (Urbano)</a></li>
+                        <li><a href="neoagro.html">Neoagro (Rural)</a></li>
+                        <li><a href="pulsar-x.html">Pulsar-X (Tech)</a></li>
+                        <li><a href="#">Blog Agro</a></li>
+                        <li><a href="#">Área do Cliente</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i><span>Rua Walter Dourado, 5386,<br>Centro, Vilhena-RO</span></li>
+                        <li><i class="fas fa-phone-alt"></i><span>(69) 99361-4353</span></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Redes Sociais</h4>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/5569993614353" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <a href="https://www.phcfocosistema.com.br/neoprag/novo/" target="_blank" class="btn-licenciados">
+                        <i class="fas fa-id-badge"></i> Licenciados
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+
+                <p>&copy; 2026 Neoagro - Controle de Pragas no Agro.</p>
+                
+                <div class="footer-legal-row">
+                    <a href="politica.html">Política de Privacidade</a>
+                    <span class="separator">|</span>
+                    <a href="termos.html">Termos de Uso</a>
+                </div>
+
+                <p class="dev-credits">
+                    Desenvolvido por <a href="#" target="_blank" style="color: inherit; text-decoration: none;">Branct Studio</a>
+                </p>
+
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Solicitação enviada! Entraremos em contato.</span>
+    </div>
+
+    <script src="./src/js/main.js" defer></script>
+<div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p>
+                Utilizamos cookies para melhorar sua experiência e analisar o tráfego. 
+                Ao continuar, você concorda com nossa 
+                <a href="politica.html" target="_blank">Política de Privacidade</a>.
+            </p>
+            <button class="btn-accept-cookies" id="btnAcceptCookies">
+                Aceitar e Fechar
+            </button>
+        </div>
+    </div>
 </body>
 </html>
